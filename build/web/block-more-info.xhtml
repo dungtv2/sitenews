@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <div id="box_col_left" class="block_more_info">
+            <div class="width_common">
+                <div class="btn_more_info">
+                    <img src="static/src/images/img_left_panel.gif" alt=""></img>
+                </div>
+                <div class="block_menu_more_info width_common">
+                    <div class="search_more_info">
+                        <input type="text" class="input_search" placeholder="Tìm Kiếm..." />
+                        <input type="submit" class="btn_search" value=" " />
+                    </div>
+                    <ul class="menu_more_info">
+                        <li class="active"><a>Home</a></li>
+                        <c:forEach items="#{cateBean.listCategory}" var="cate">
+                            <li>
+                                <a>#{cate.cate_name}</a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                    <div class="footer_more_info">
+                        <div class="copy_right_left">
+                            <p>© Copyright 2010 okia.vn, All rights reserved</p>
+                            <p>® Ôkia giữ bản quyền nội dung trên website này.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+

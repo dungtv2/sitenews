@@ -1,19 +1,893 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Facelet Title</title>
+        <link rel="stylesheet" type="text/css" href="static/src/css/normal.css" />
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js" />
+        <script type="text/javascript" src="static/src/js/jquery-2.1.1.min.js" />
+        <script type="text/javascript" src="static/src/js/jquery-ui/jquery-ui.js" />
+        <script type="text/javascript" src="static/src/js/date-picker-vi.js" />
+        <script type="text/javascript" src="static/src/js/normal.js" />
+        <script type="text/javascript">
+            $(function(){
+                datetoday();
+                flag = false;
+                $('.btn_more_info').click(function(){
+                    if(flag){
+                        $('#box_col_left').css({left:'-240px'});
+                        $('#page').removeAttr('style');
+                        flag = false;
+                    }else{
+                        $('#box_col_left').css({left:'0px'});
+                        height_col_left = $('#box_col_left').outerHeight();
+                        $('#page').css({height:height_col_left, overflow: 'hidden'});
+                        flag =true;
+                    }
+                });
+            });
+        </script>
     </h:head>
     <h:body>
-        Hello from Facelets
-        <br />
-        
-        
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <h:form>
+            <ui:include src="block-more-info.xhtml" />
+            <div id="page">
+                <ui:include src="header.xhtml" />
+                <div id="wrapper_container">
+                    <div id="container">
+                        <div id="homepage" class="width_common">
+                            <div class="width_common">
+                                <div id="col_660" class="left">
+                                    <div id="box_news_top" class="width_common box_category">
+                                        <div id="box_hot_news" class="box_hot_news">
+                                            <div class="thumb">
+                                                <a>
+                                                    <img src="http://s.f19.img.vnecdn.net/2015/03/21/t-1426913371_490x294.jpg" class="width_image_common"></img>
+                                                </a>
+                                            </div>
+                                            <div class="block_hot_news_info">
+                                                <div class="title_news">
+                                                    <a class="txt_link">5 hot girl Việt mang bầu vẫn quyến rũ lạ thường	</a>
+                                                </div>
+                                                <div class="news_lead">
+                                                    <p>Tâm Tít, Elly Trần, Mai Thỏ, Quỳnh Chi... là những cô nàng luôn giữ được vẻ rạng rỡ, cuốn hút ánh nhìn dù đang mang bầu hay sau khi hạ sinh baby.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="box_sub_hot_news" class="box_sub_hot_news">
+                                            <ul>
+                                                <c:forEach begin="1" end="4">
+                                                    <li>
+                                                        <div class="thumb">
+                                                            <a>
+                                                                <img src="http://s.f18.img.vnecdn.net/2015/02/27/page-1425001462_490x294.jpg" class="width_image_common"></img>
+                                                            </a>
+                                                        </div>
+                                                        <div class="title_news">
+                                                            <a class="txt_link">Chiếc váy lạ đời gây tranh cãi thực chất có màu xanh - đen</a>
+                                                        </div>
+                                                    </li>
+                                                </c:forEach>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row-item">
+                                        <div id="box_nhipsong" class="box_category width_common news_3a_3t">
+                                            <div class="title-box-category width_common">
+                                                <div class="txt_main_category">
+                                                    <a>
+                                                        <span class="color_xanh">N</span>hịp Sống
+                                                    </a>
+                                                </div>
+                                                <div class="block_category_child">
+                                                    <c:forEach items="#{typeBean.listType1}" var="type">
+                                                        <c:if test="#{type.cate_id=='haihai_nhipsong'}">
+                                                            <a>#{type.type_name}</a>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </div>
+                                            </div>
+                                            <div class="content-box-category width_common">
+                                                <div class="list_img_inrow">
+                                                    <ul class="list_news_img">
+                                                        <c:forEach begin="1" end="3">
+                                                            <li>
+                                                                <div class="thumb">
+                                                                    <a>
+                                                                        <img title="Tết này, hot teen nào được lì xì 'khủng' nhất" alt="Tết này, hot teen nào được lì xì 'khủng' nhất" src="http://s.f19.img.vnecdn.net/2015/02/22/page-1424563997_300x180.jpg" />
+                                                                    </a>
+                                                                </div>
+                                                                <div class="title_news">
+                                                                    <a class="txt_link">
+                                                                        Tết này, hot teen nào được lì xì 'khủng' nhất
+                                                                    </a>
+                                                                </div>
+                                                            </li>
+                                                        </c:forEach>
+                                                    </ul>
+                                                </div>
+                                                <div class="list_text_inrow">
+                                                    <ul class="list_news_text">
+                                                        <c:forEach begin="1" end="6">
+                                                            <li>
+                                                                <a>
+                                                                    Tuấn Nhã - 9x điển trai, giỏi nấu món Pháp - Hàn
+                                                                </a>
+                                                            </li>
+                                                        </c:forEach>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-item">
+                                        <div id="box_thoitrang" class="box_category width_common news_1_3">
+                                            <div class="title-box-category width_common">
+                                                <div class="txt_main_category">
+                                                    <a>
+                                                        <span class="color_xanh">T</span>hời Trang
+                                                    </a>
+                                                </div>
+                                                <div class="block_category_child">
+                                                    <c:forEach items="#{typeBean.listType1}" var="type">
+                                                        <c:if test="#{type.cate_id=='haihai_thoitrang'}">
+                                                            <a>#{type.type_name}</a>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </div>
+                                            </div>
+                                            <div class="content-box-category width_common">
+                                                <div class="color_hongnhat width_common">
+                                                    <div class="col_30 left">
+                                                        <div class="relative">
+                                                            <div class="thumb">
+                                                                <a>
+                                                                    <img src="http://m.f20.img.vnecdn.net/2015/02/21/other-1424489637_300x450.jpg" title="Thời trang chơi Tết toàn tông trầm của các hot girl Instagram" alt="Thời trang chơi Tết toàn tông trầm của các hot girl Instagram"></img>
+                                                                </a>
+                                                                <a class="title_absolute">
+                                                                    Thời trang chơi Tết toàn tông trầm của các hot girl Instagram
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col_70 right pd-l-15 pd-r-5">
+                                                        <div class="news_img width_common">
+                                                            <ul>
+                                                                <c:forEach begin="1" end="3">
+                                                                    <li>
+                                                                        <div class="block_image_news width_common">
+                                                                            <div class="thumb col_33">
+                                                                                <a>
+                                                                                    <img src="http://l.f17.img.vnecdn.net/2015/02/21/top-1424457492_180x108.jpg" title="Hoàng Thùy lọt top mặc đẹp trên báo ngoại nhờ thiết kế Việt" alt="Hoàng Thùy lọt top mặc đẹp trên báo ngoại nhờ thiết kế Việt"></img>
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="title_news">
+                                                                                <a class="txt_link">Hoàng Thùy lọt top mặc đẹp trên báo ngoại nhờ thiết kế Việt</a>
+                                                                            </div>
+                                                                            <div class="news_lead">Những chiếc áo khoác độc đáo, sang chảnh của nhà thiết kế Trương Thanh Long giúp Hoàng Thùy lọt top...</div>
+                                                                        </div>
+                                                                    </li>
+                                                                </c:forEach>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row-item">
+                                        <div id="box_showbiz" class="box_category width_common block_6tin">
+                                            <div class="title-box-category width_common">
+                                                <div class="txt_main_category">
+                                                    <a>
+                                                        <span class="color_xanh">S</span>howbiz
+                                                    </a>
+                                                </div>
+                                                <div class="block_category_child">
+                                                    <c:forEach items="#{typeBean.listType1}" var="type">
+                                                        <c:if test="#{type.cate_id=='haihai_showbiz'}">
+                                                            <a>#{type.type_name}</a>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </div>
+                                            </div>
+                                            <div class="content-box-category width_common">
+                                                <div class="list_img_inrow">
+                                                    <ul class="list_news_img">
+                                                        <c:forEach begin="1" end="6">
+                                                            <li>
+                                                                <div class="thumb">
+                                                                    <a>
+                                                                        <img title="Tết này, hot teen nào được lì xì 'khủng' nhất" alt="Tết này, hot teen nào được lì xì 'khủng' nhất" src="http://s.f17.img.vnecdn.net/2015/02/22/t-1424541587_300x180.jpg" />
+                                                                    </a>
+                                                                </div>
+                                                                <div class="title_news">
+                                                                    <a class="txt_link">
+                                                                        Tết này, hot teen nào được lì xì 'khủng' nhất
+                                                                    </a>
+                                                                </div>
+                                                            </li>
+                                                        </c:forEach>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-item">
+                                        <div id="box_suckhoe" class="box_category width_common news_1_2">
+                                            <div class="title-box-category width_common">
+                                                <div class="txt_main_category">
+                                                    <a>
+                                                        <span class="color_xanh">S</span>ức Khỏe
+                                                    </a>
+                                                </div>
+                                                <div class="block_category_child">
+                                                    <c:forEach items="#{typeBean.listType1}" var="type">
+                                                        <c:if test="#{type.cate_id=='haihai_suckhoe'}">
+                                                            <a>#{type.type_name}</a>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </div>
+                                            </div>
+                                            <div class="content-box-category width_common">
+                                                <div class="color_bg_xanh1 width_common">
+                                                    <div class="col_50 left">
+                                                        <div class="width_common">
+                                                            <div class="thumb relative mg-b-10">
+                                                                <a>
+                                                                    <img src="http://s.f19.img.vnecdn.net/2015/02/25/the-gioi-sieu-thuc-dep-den-kho-tin-trong-loat-anh-photoshop-1424856172_300x180.jpg"></img>
+                                                                </a>
+                                                            </div>
+                                                            <div class="title_news" style="
+                                                                 padding-left: 10px;
+                                                                 ">
+                                                                <a class="txt_link">Thế giới siêu thực đẹp đến khó tin trong loạt ảnh photoshop</a>
+                                                            </div>
+                                                            <div class="news_lead">
+                                                                <p style="
+                                                                   padding-left: 10px;
+                                                                   ">Omerika, một nhiếp ảnh gia đã dùng tài photoshop để biến những bức ảnh bình thường của mình thành những...</p>
+                                                            </div><ul class="list_news_text" style="
+                                                                      padding-left: 10px;
+                                                                      padding-top: 0px;
+                                                                      ">
+                                                                <li>
+                                                                    <a>
+                                                                        Tuấn Nhã - 9x điển trai, giỏi nấu món Pháp - Hàn
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a>
+                                                                        Tuấn Nhã - 9x điển trai, giỏi nấu món Pháp - Hàn
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col_50 right pd-l-15 pd-r-5">
+                                                        <div class="width_common block_news_img" style="
+                                                             padding-top: 10px;
+                                                             ">
+                                                            <ul>
+                                                                <li>
+                                                                    <div class="block_image_news width_common">
+                                                                        <div class="thumb col_45">
+                                                                            <a>
+                                                                                <img src="http://l.f19.img.vnecdn.net/2015/01/30/0-1422593077_180x108.jpg" title="5 tướng miệng đem phú quý đến cho bạn" alt="5 tướng miệng đem phú quý đến cho bạn"></img>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="title_news">
+                                                                            <a class="txt_link">5 tướng miệng đem phú quý đến cho bạn</a>
+                                                                        </div>
+                                                                        <div class="news_lead">Những chiếc áo khoác độc đáo, sang chảnh của nhà thiết kế Trương Thanh Long giúp Hoàng Thùy lọt top...</div>
+                                                                    </div>
+                                                                </li>
+
+                                                                <li>
+                                                                    <div class="block_image_news width_common">
+                                                                        <div class="thumb col_45">
+                                                                            <a>
+                                                                                <img src="http://l.f19.img.vnecdn.net/2015/01/30/0-1422593077_180x108.jpg" title="5 tướng miệng đem phú quý đến cho bạn" alt="5 tướng miệng đem phú quý đến cho bạn"></img>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="title_news">
+                                                                            <a class="txt_link">5 tướng miệng đem phú quý đến cho bạn</a>
+                                                                        </div>
+                                                                        <div class="news_lead">Omerika, một nhiếp ảnh gia đã dùng tài photoshop để biến những bức ảnh bình thường của mình thành những...</div>
+                                                                    </div>
+                                                                </li><li>
+                                                                    <div class="block_image_news width_common">
+                                                                        <div class="thumb col_45">
+                                                                            <a>
+                                                                                <img src="http://l.f19.img.vnecdn.net/2015/01/30/0-1422593077_180x108.jpg" title="5 tướng miệng đem phú quý đến cho bạn" alt="5 tướng miệng đem phú quý đến cho bạn"></img>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="title_news">
+                                                                            <a class="txt_link">5 tướng miệng đem phú quý đến cho bạn</a>
+                                                                        </div>
+                                                                        <div class="news_lead">Miệng to, đôi môi dày, hay khóe miệng hướng lên trên... là những đặc điểm đem đến cho bạn sự...</div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-item">
+                                        <div id="box_video" class="box_category width_common news_3a">
+                                            <div class="title-box-category width_common">
+                                                <div class="txt_main_category">
+                                                    <a>
+                                                        <span class="color_xanh">V</span>ideo
+                                                    </a>
+                                                </div>
+                                                <div class="block_category_child">
+                                                    <c:forEach items="#{typeBean.listType1}" var="type">
+                                                        <c:if test="#{type.cate_id=='haihai_video'}">
+                                                            <a>#{type.type_name}</a>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </div>
+                                            </div>
+                                            <div class="content-box-category width_common">
+                                                <div class="list_img_inrow">
+                                                    <ul class="list_news_img">
+                                                        <c:forEach begin="1" end="3">
+                                                            <li>
+                                                                <div class="thumb">
+                                                                    <a>
+                                                                        <img title="Tết này, hot teen nào được lì xì 'khủng' nhất" alt="Tết này, hot teen nào được lì xì 'khủng' nhất" src="http://s.f17.img.vnecdn.net/2015/02/22/t-1424541587_300x180.jpg" />
+                                                                        <a class="icon_thumb_videophoto icon_video"></a>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="title_news">
+                                                                    <a class="txt_link">
+                                                                        Tết này, hot teen nào được lì xì 'khủng' nhất
+                                                                        <span class="no_wrap">
+                                                                            <img src="static/src/images/img_blank.gif" class="icon_content icon_title_2" />
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </li>
+                                                        </c:forEach>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-item">
+                                        <div class="pr_2_box col_50 left pd-r-10">
+                                            <div id="box_ishare" class="box_category width_common">
+                                                <div class="title-box-category width_common">
+                                                    <div class="txt_main_category">
+                                                        <a>
+                                                            <span class="color_xanh">I</span>share
+                                                        </a>
+                                                    </div>
+                                                    <div class="block_category_child">
+                                                        <c:forEach items="#{typeBean.listType1}" var="type">
+                                                            <c:if test="#{type.cate_id=='haihai_ishare'}">
+                                                                <a>#{type.type_name}</a>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </div>
+                                                </div>
+                                                <div class="content-box-category width_common">
+                                                    <div class="width_common mg-b-15">
+                                                        <div class="thumb relative pd-b-15">
+                                                            <a>
+                                                                <img src="http://c1.f22.img.vnecdn.net/2015/02/26/top-1424842403_1424916375_300x180.jpg" alt=""></img>
+                                                            </a>
+                                                        </div>
+                                                        <div class="title_news">
+                                                            <a class="txt_link">Chòm sao nào khó dứt tình cũ</a>
+                                                        </div>
+                                                        <div class="news_lead">
+                                                            <a>Vì không quyết đoán hay quá đa sầu mà Thiên Bình, Cự Giải... đều rất khó dứt điểm với tình...</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="width_common">
+                                                        <div class="block_image_news width_common">
+                                                            <div class="thumb col_45">
+                                                                <a>
+                                                                    <img src="http://l.f19.img.vnecdn.net/2015/01/30/0-1422593077_180x108.jpg" title="5 tướng miệng đem phú quý đến cho bạn" alt="5 tướng miệng đem phú quý đến cho bạn"></img>
+                                                                </a>
+                                                            </div>
+                                                            <div class="title_news">
+                                                                <a class="txt_link">5 tướng miệng đem phú quý đến cho bạn</a>
+                                                            </div>
+                                                            <div class="news_lead">Miệng to, đôi môi dày, hay khóe miệng hướng lên trên... là những đặc điểm đem đến cho bạn sự...</div>
+                                                            <ul class="list_news_text">
+                                                                <c:forEach begin="1" end="2">
+                                                                    <li>
+                                                                        <a>
+                                                                            Tuấn Nhã - 9x điển trai, giỏi nấu món Pháp - Hàn
+                                                                        </a>
+                                                                    </li>
+                                                                </c:forEach>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pr_2_box col_50 right pd-l-10">
+                                            <div id="box_fitness" class="box_category width_common">
+                                                <div class="title-box-category width_common">
+                                                    <div class="txt_main_category">
+                                                        <a>
+                                                            <span class="color_xanh">F</span>itness
+                                                        </a>
+                                                    </div>
+                                                    <div class="block_category_child">
+                                                        <c:forEach items="#{typeBean.listType1}" var="type">
+                                                            <c:if test="#{type.cate_id=='haihai_fitness'}">
+                                                                <a>#{type.type_name}</a>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </div>
+                                                </div>
+                                                <div class="content-box-category width_common">
+                                                    <div class="width_common mg-b-15">
+                                                        <div class="thumb relative pd-b-15">
+                                                            <a>
+                                                                <img src="http://s.f17.img.vnecdn.net/2015/02/25/510670051421461262300x1801423031995300x180-1424873026_300x180.jpg" alt=""></img>
+                                                            </a>
+                                                        </div>
+                                                        <div class="title_news">
+                                                            <a class="txt_link">1 USD mua được những gì ở châu Âu?</a>
+                                                        </div>
+                                                        <div class="news_lead">
+                                                            <a>Bằng khoảng 21.000 đồng, 1 USD bạn có thể mua được khá thứ hữu ích ở các nước châu Âu...</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="width_common">
+                                                        <div class="block_image_news width_common">
+                                                            <div class="thumb col_45">
+                                                                <a>
+                                                                    <img src="http://l.f19.img.vnecdn.net/2015/02/25/12-Flickr-thisisbossi_1424830772_180x108.png" title="10 điều bạn sẽ nhớ đến cồn cào sau mỗi chuyến đi xa" alt="10 điều bạn sẽ nhớ đến cồn cào sau mỗi chuyến đi xa"></img>                                                                </a>
+                                                            </div>
+                                                            <div class="title_news">
+                                                                <a class="txt_link">10 điều bạn sẽ nhớ đến cồn cào sau mỗi chuyến đi xa</a>
+                                                            </div>
+                                                            <div class="news_lead">Ngày nào cũng là cuối tuần, những món ăn siêu ngon... sẽ khiến các ấy không thôi xốn xang, mong...</div>
+                                                            <ul class="list_news_text">
+                                                                <c:forEach begin="1" end="2">
+                                                                    <li>
+                                                                        <a>
+                                                                            Đất nước nào sở hữu giọng nói quyến rũ nhất thế giới
+                                                                        </a>
+                                                                    </li>
+                                                                </c:forEach>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-item">
+                                        <div class="pr_2_box col_50 left pd-r-10">
+                                            <div id="box_ishare" class="box_category width_common">
+                                                <div class="title-box-category width_common">
+                                                    <div class="txt_main_category">
+                                                        <a>
+                                                            <span class="color_xanh">I</span>share
+                                                        </a>
+                                                    </div>
+                                                    <div class="block_category_child">
+                                                        <c:forEach items="#{typeBean.listType1}" var="type">
+                                                            <c:if test="#{type.cate_id=='haihai_ishare'}">
+                                                                <a>#{type.type_name}</a>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </div>
+                                                </div>
+                                                <div class="content-box-category width_common">
+                                                    <div class="width_common block_news_img">
+                                                        <ul>
+                                                            <li>
+                                                                <div class="block_image_news width_common">
+                                                                    <div class="thumb col_45">
+                                                                        <a>
+                                                                            <img src="http://l.f19.img.vnecdn.net/2015/01/30/0-1422593077_180x108.jpg" title="5 tướng miệng đem phú quý đến cho bạn" alt="5 tướng miệng đem phú quý đến cho bạn"></img>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="title_news">
+                                                                        <a class="txt_link">5 tướng miệng đem phú quý đến cho bạn</a>
+                                                                    </div>
+                                                                    <div class="news_lead">Miệng to, đôi môi dày, hay khóe miệng hướng lên trên... là những đặc điểm đem đến cho bạn sự...</div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="block_image_news width_common">
+                                                                    <div class="thumb col_45">
+                                                                        <a>
+                                                                            <img src="http://l.f19.img.vnecdn.net/2015/01/30/0-1422593077_180x108.jpg" title="5 tướng miệng đem phú quý đến cho bạn" alt="5 tướng miệng đem phú quý đến cho bạn"></img>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="title_news">
+                                                                        <a class="txt_link">5 tướng miệng đem phú quý đến cho bạn</a>
+                                                                    </div>
+                                                                    <div class="news_lead">Miệng to, đôi môi dày, hay khóe miệng hướng lên trên... là những đặc điểm đem đến cho bạn sự...</div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <ul class="list_news_text">
+                                                        <li>
+                                                            <a>
+                                                                Tuấn Nhã - 9x điển trai, giỏi nấu món Pháp - Hàn
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a>
+                                                                Tuấn Nhã - 9x điển trai, giỏi nấu món Pháp - Hàn
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pr_2_box col_50 right pd-l-10">
+                                            <div id="box_ishare" class="box_category width_common">
+                                                <div class="title-box-category width_common">
+                                                    <div class="txt_main_category">
+                                                        <a>
+                                                            <span class="color_xanh">F</span>itness
+                                                        </a>
+                                                    </div>
+                                                    <div class="block_category_child">
+                                                        <c:forEach items="#{typeBean.listType1}" var="type">
+                                                            <c:if test="#{type.cate_id=='haihai_fitness'}">
+                                                                <a>#{type.type_name}</a>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </div>
+                                                </div>
+                                                <div class="content-box-category width_common">
+                                                    <div class="width_common block_news_img">
+                                                        <ul>
+                                                            <li>
+                                                                <div class="block_image_news width_common">
+                                                                    <div class="thumb col_45">
+                                                                        <a>
+                                                                            <img src="http://l.f19.img.vnecdn.net/2015/01/30/0-1422593077_180x108.jpg" title="5 tướng miệng đem phú quý đến cho bạn" alt="5 tướng miệng đem phú quý đến cho bạn"></img>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="title_news">
+                                                                        <a class="txt_link">5 tướng miệng đem phú quý đến cho bạn</a>
+                                                                    </div>
+                                                                    <div class="news_lead">Miệng to, đôi môi dày, hay khóe miệng hướng lên trên... là những đặc điểm đem đến cho bạn sự...</div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="block_image_news width_common">
+                                                                    <div class="thumb col_45">
+                                                                        <a>
+                                                                            <img src="http://l.f19.img.vnecdn.net/2015/01/30/0-1422593077_180x108.jpg" title="5 tướng miệng đem phú quý đến cho bạn" alt="5 tướng miệng đem phú quý đến cho bạn"></img>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="title_news">
+                                                                        <a class="txt_link">5 tướng miệng đem phú quý đến cho bạn</a>
+                                                                    </div>
+                                                                    <div class="news_lead">Miệng to, đôi môi dày, hay khóe miệng hướng lên trên... là những đặc điểm đem đến cho bạn sự...</div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <ul class="list_news_text">
+                                                        <li>
+                                                            <a>
+                                                                Tuấn Nhã - 9x điển trai, giỏi nấu món Pháp - Hàn
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a>
+                                                                Tuấn Nhã - 9x điển trai, giỏi nấu món Pháp - Hàn
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-item">
+                                        <div class="pr_2_box col_50 left pd-r-10">
+                                            <!--<div id="box_xahoi" class="box_category width_common">
+                                                <div class="title-box-category width_common">
+                                                    <div class="txt_main_category">
+                                                        <a>
+                                                            <span class="color_xanh">V</span>ui Độc
+                                                        </a>
+                                                    </div>
+                                                    <div class="block_category_child">
+                                                        <c:forEach items="#{typeBean.listType1}" var="type">
+                                                            <c:if test="#{type.cate_id=='haihai_vuidoc'}">
+                                                                <a>#{type.type_name}</a>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </div>
+                                                </div>
+                                                <div class="content-box-category width_common">
+                                                    <div class="width_common">
+                                                        <div class="block_image_news width_common">
+                                                            <ul>
+                                                                <li class="pd-b-10">
+                                                                    <div class="thumb col_45">
+                                                                        <a>
+                                                                            <img src="http://c1.f22.img.vnecdn.net/2015/02/26/top-1424842403_1424916375_300x180.jpg" alt=""></img>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="title_news">
+                                                                        <a class="txt_link">Chòm sao nào khó dứt tình cũ</a>
+                                                                    </div>
+                                                                    <div class="news_lead">
+                                                                        <a>Vì không quyết đoán hay quá đa sầu mà Thiên Bình, Cự Giải... đều rất khó dứt điểm với tình...</a>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="thumb col_45">
+                                                                        <a>
+                                                                            <img src="http://l.f19.img.vnecdn.net/2015/01/30/0-1422593077_180x108.jpg" title="5 tướng miệng đem phú quý đến cho bạn" alt="5 tướng miệng đem phú quý đến cho bạn"></img>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="title_news">
+                                                                        <a class="txt_link">5 tướng miệng đem phú quý đến cho bạn	</a>
+                                                                    </div>
+                                                                    <div class="news_lead">Miệng to, đôi môi dày, hay khóe miệng hướng lên trên... là những đặc điểm đem đến cho bạn sự...</div>
+                                                                    <ul class="list_news_text">
+                                                                        <c:forEach begin="1" end="2">
+                                                                            <li>
+                                                                                <a>
+                                                                                    Tuấn Nhã - 9x điển trai, giỏi nấu món Pháp - Hàn
+                                                                                </a>
+                                                                            </li>
+                                                                        </c:forEach>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>-->
+                                            <div id="box_chiemtinh" class="box_category width_common">
+                                                <div class="title-box-category width_common">
+                                                    <div class="txt_main_category">
+                                                        <a>
+                                                            <span class="color_xanh">C</span>hiêm Tinh
+                                                        </a>
+                                                    </div>
+                                                    <div class="block_category_child">
+                                                        <c:set var="count" value="0" />
+                                                        <c:forEach items="#{typeBean.listType1}" var="type">
+                                                            <c:if test="#{count&lt;3}">
+                                                                <c:if test="#{type.cate_id=='haihai_chiemtinh'}">
+                                                                    <a>#{type.type_name}</a>
+                                                                    <c:set var="count" value="#{count+1}" />
+                                                                </c:if>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </div>
+                                                </div>
+                                                <div class="content-box-category width_common">
+                                                    <div class="width_common">
+                                                        <div class="thumb relative mg-b-10">
+                                                            <a>
+                                                                <img src="http://s.f19.img.vnecdn.net/2015/02/25/the-gioi-sieu-thuc-dep-den-kho-tin-trong-loat-anh-photoshop-1424856172_300x180.jpg"></img>
+                                                            </a>
+                                                        </div>
+                                                        <div class="title_news">
+                                                            <a class="txt_link">Thế giới siêu thực đẹp đến khó tin trong loạt ảnh photoshop</a>
+                                                        </div>
+                                                        <div class="news_lead">
+                                                            <p>Omerika, một nhiếp ảnh gia đã dùng tài photoshop để biến những bức ảnh bình thường của mình thành những...</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="width_common">
+                                                        <div class="block_image_news">
+                                                            <ul>
+                                                                <li class="pd-t-10 mg-t-10 bd-t-dot">
+                                                                    <div class="thumb col_50">
+                                                                        <a><img src="http://l.f18.img.vnecdn.net/2015/02/24/net-dep-rieng-day-cuon-hut-cua-phai-nu-khap-the-gioi-1424774811_180x108.jpg" alt=""></img></a>
+                                                                    </div>
+                                                                    <div class="title_news">
+                                                                        <a class="txt_link">Nét đẹp riêng đầy cuốn hút của phái nữ khắp thế giới</a>
+                                                                    </div>
+                                                                    <div class="news_lead">
+                                                                        <p>Nhiếp ảnh gia người Rumani Mihaela Noroc đi du lịch vòng quanh thế giới để chụp chân dung những người...</p>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="pd-t-10 mg-t-10 bd-t-dot">
+                                                                    <div class="thumb col_50">
+                                                                        <a><img src="http://l.f19.img.vnecdn.net/2015/02/19/Dancing-Bucharest22-880-1424357169_180x108.jpg" alt=""></img></a>
+                                                                    </div>
+                                                                    <div class="title_news">
+                                                                        <a class="txt_link">Những khoảnh khắc nhảy múa tuyệt đẹp trên đường phố</a>
+                                                                    </div>
+                                                                    <div class="news_lead">
+                                                                        <p>Bộ ảnh 'Dancing Bucharest' của nhiếp ảnh gia người Rumani thể hiện vẻ đẹp mạnh mẽ, sống động của các...</p>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pr_2_box col_50 right pd-l-10">
+                                            <div id="box_anh" class="box_category width_common">
+                                                <div class="title-box-category width_common">
+                                                    <div class="txt_main_category">
+                                                        <a>
+                                                            <span class="color_xanh">Ả</span>nh
+                                                        </a>
+                                                    </div>
+                                                    <div class="block_category_child">
+                                                        <c:forEach items="#{typeBean.listType1}" var="type">
+                                                            <c:if test="#{type.cate_id=='haihai_anh'}">
+                                                                <a>#{type.type_name}</a>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </div>
+                                                </div>
+                                                <div class="content-box-category width_common">
+                                                    <div class="width_common">
+                                                        <div class="thumb relative mg-b-10">
+                                                            <a>
+                                                                <img src="http://s.f19.img.vnecdn.net/2015/02/25/the-gioi-sieu-thuc-dep-den-kho-tin-trong-loat-anh-photoshop-1424856172_300x180.jpg"></img>
+                                                            </a>
+                                                            <a class="icon_thumb_videophoto icon_photo"></a>
+                                                        </div>
+                                                        <div class="title_news">
+                                                            <a class="txt_link">Thế giới siêu thực đẹp đến khó tin trong loạt ảnh photoshop</a>
+                                                        </div>
+                                                        <div class="news_lead">
+                                                            <p>Omerika, một nhiếp ảnh gia đã dùng tài photoshop để biến những bức ảnh bình thường của mình thành những...</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="width_common">
+                                                        <div class="block_image_news">
+                                                            <ul>
+                                                                <li class="pd-t-10 mg-t-10 bd-t-dot">
+                                                                    <div class="thumb col_50">
+                                                                        <a><img src="http://l.f18.img.vnecdn.net/2015/02/24/net-dep-rieng-day-cuon-hut-cua-phai-nu-khap-the-gioi-1424774811_180x108.jpg" alt=""></img></a>
+                                                                        <a class="icon_thumb_videophoto icon_photo"></a>
+                                                                    </div>
+                                                                    <div class="title_news">
+                                                                        <a class="txt_link">Nét đẹp riêng đầy cuốn hút của phái nữ khắp thế giới</a>
+                                                                    </div>
+                                                                    <div class="news_lead">
+                                                                        <p>Nhiếp ảnh gia người Rumani Mihaela Noroc đi du lịch vòng quanh thế giới để chụp chân dung những người...</p>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="pd-t-10 mg-t-10 bd-t-dot">
+                                                                    <div class="thumb col_50">
+                                                                        <a><img src="http://l.f19.img.vnecdn.net/2015/02/19/Dancing-Bucharest22-880-1424357169_180x108.jpg" alt=""></img></a>
+                                                                        <a class="icon_thumb_videophoto icon_photo"></a>
+                                                                    </div>
+                                                                    <div class="title_news">
+                                                                        <a class="txt_link">Những khoảnh khắc nhảy múa tuyệt đẹp trên đường phố</a>
+                                                                    </div>
+                                                                    <div class="news_lead">
+                                                                        <p>Bộ ảnh 'Dancing Bucharest' của nhiếp ảnh gia người Rumani thể hiện vẻ đẹp mạnh mẽ, sống động của các...</p>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="col_300" class="right">
+                                    <!--Box bài mới nhất-->
+                                    <div class="box_category width_common box-tinmoi">
+                                        <div class="title-box-category width_common">
+                                            <div class="txt_main_category"><a>Bài Mới Nhất</a></div>
+                                        </div>
+                                        <div class="content-box-category">
+                                            <table class="tbl_docnhieu">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="news_name">
+                                                            <p>
+                                                                <a>Chi Pu mặc quần short, cưỡi xe máy đi tặng hoa giữa đêm</a>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="news_name">
+                                                            <p>
+                                                                <a>Chi Pu mặc quần short, cưỡi xe máy đi tặng hoa giữa đêm</a>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!--Box đọc nhiều nhất-->
+                                    <div class="box_category width_common box-docnhieu">
+                                        <div class="title-box-category width_common">
+                                            <div class="txt_main_category"><a>Đọc Nhiều</a></div>
+                                        </div>
+                                        <div class="content-box-category">
+                                            <table class="tbl_docnhieu">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="hang">1.</td>
+                                                        <td class="news_name"><p><a>Chi Pu mặc quần short, cưỡi xe máy đi tặng hoa giữa đêm</a></p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="hang">2.</td>
+                                                        <td class="news_name"><p><a>Chi Pu mặc quần short, cưỡi xe máy đi tặng hoa giữa đêm</a></p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="hang">3.</td>
+                                                        <td class="news_name"><p><a>Chi Pu mặc quần short, cưỡi xe máy đi tặng hoa giữa đêm</a></p></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!--Box like facbook-->
+                                    <div class="box_category width_common box-fb">
+                                        <div class="content-box-category">
+                                            <script>(function(d, s, id) {
+                                                    var js, fjs = d.getElementsByTagName(s)[0];
+                                                    if (d.getElementById(id))
+                                                        return;
+                                                    js = d.createElement(s);
+                                                    js.id = id;
+                                                    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&amp;version=v2.0";
+                                                    fjs.parentNode.insertBefore(js, fjs);
+                                                }(document, 'script', 'facebook-jssdk'));</script>
+                                            <div class="fb-like-box" data-href="https://www.facebook.com/pages/DJ-Trang-Moon/764539520331052?ref=hl" data-width="280" data-height="250" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="true"></div>
+                                        </div>
+                                    </div>
+                                    <div class="box_category width_common box-linhtinh">
+                                        <div class="title-box-category">
+                                            <div class="txt_main_category"><a>Thời Trang hotgirl</a></div>
+                                        </div>
+                                        <div class="content-box-category">
+                                            <ul class="list_img">
+                                                <c:forEach begin="1" end="3">
+                                                    <li>
+                                                        <div class="thumb col_50 pd-r-10">
+                                                            <a>
+                                                                <img src="http://l.f18.img.vnecdn.net/2015/03/03/top-1425372362_180x108.jpg"></img>
+                                                            </a>
+                                                        </div>
+                                                        <p>
+                                                            <strong>
+                                                                <a title="6 hot girl mặc đẹp dự đoán xu hướng thời trang xuân hè 2015" alt="6 hot girl mặc đẹp dự đoán xu hướng thời trang xuân hè 2015">
+                                                                    6 hot girl mặc đẹp dự đoán xu hướng thời trang xuân hè 2015
+                                                                </a>
+                                                            </strong>
+                                                        </p>
+                                                    </li>
+                                                </c:forEach>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ui:include src="footer.xhtml" />
+            </div>
+        </h:form>
     </h:body>
 </html>
+
 

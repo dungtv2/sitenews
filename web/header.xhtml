@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <div id="wrapper_header">
+            <div>
+
+            </div>
+        </div>
+        <div id="header_web" class="width_common">
+            <div id="header_main">
+                <div class="header_logo width_common"></div>
+                <ul id="menu_web" class="width_common">
+                    <li>
+                        <a>
+                            <img src="#{request.contextPath}/static/src/img/icon/home-24.png" width="100%" alt="" height="100%"/>
+                        </a>
+                    </li>
+                    <c:forEach items="#{cateBean.listCategory}" var="cate">
+                        <li>
+                            <a>#{cate.cate_name}</a>
+                        </li>
+                    </c:forEach>
+                </ul>
+                <div id="header_mid" class="width_common">
+                    <div class="left">
+                        <a class="txt_sethome">Đăt làm trang chủ</a>
+                        <span class="left mg-l-r-5">|</span>
+                        <a class="txt_timer">Chủ nhật, 22/02/2015 | 00:10 GTM+7</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+

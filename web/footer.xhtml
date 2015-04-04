@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <div id="wrapper_footer">
+            <div id="footer">
+                <div class="footerMenu">
+                    <ul>
+                        <c:set value="0" var="count" />
+                        <c:forEach items="#{cateBean.listCategory}" var="cate">
+                            <c:set value="#{count+1}" var="count" />
+                            <li>
+                                <div class="block_menufotter_item">
+                                    <c:choose>
+                                        <c:when test="#{count%2>0}">
+                                            <a class="parent_menu">#{cate.cate_name}</a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a class="parent_menu color_hong">#{cate.cate_name}</a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:forEach items="#{typeBean.listType1}" var="type">
+                                        <c:if test="#{type.cate_id==cate.cate_id}">
+                                            <a>#{type.type_name}</a>
+                                        </c:if>
+                                    </c:forEach>
+                                </div>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </h:body>
+</html>
+
