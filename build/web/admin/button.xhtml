@@ -1,0 +1,583 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>button</title>
+        <script type="text/javascript" src="#{request.contextPath}/js/jquery-2.1.1.min.js" />
+        <script type="text/javascript">
+            $(function() {
+                $('[box="icon"] i').each(function() {
+                    $(this).attr({"pos-tooltip": "top", "title-tooltip": 'Class :' + $(this).attr("class"), "data-tooltip": "tooltip"});
+                });
+            });
+        </script>
+    </h:head>
+    <h:body>
+        <h:form id="frm_default" prependId="false">
+            <ui:composition template="template/layout.xhtml">
+                <ui:define name="content">
+                    <div id="content" class="width_common bg-white">
+                        <ul class="list_base left">
+                            <li><a class="a_base"  href="button.xhtml"><i class="i_icon i_user" />Button</a></li>
+                            <li><a class="a_base"  href="formelement.xhtml"><i class="i_icon i_role" />Form-element</a></li>
+                            <li><a class="a_base"  href="notifications.xhtml"><i class="i_icon i_category" />Notifications</a></li>
+                            <li><a class="a_base"  href="table.xhtml"><i class="i_icon i_type-news" />Tables</a> </li>
+                        </ul>
+                        <div class="container-fluid p-t-20">
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">Button Color</div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>Color can be a wonderful tool for making
+                                                your dashboard less stressful
+                                                and more calming</h5>
+                                            <p>Color can be a wonderful tool for making your dashboard less stressful and more calming
+                                                — and it can have a significant impact on your mood and well-being, We made it with you in mind</p>
+                                            <div class="row">
+                                                <div class="col-sm-7">
+                                                    <p>Primary Button</p>
+                                                    <p>Class :<code>.btn-primary</code></p>
+                                                    <button class="btn btn-primary btn-cons">Primary</button>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <p>Complete Button</p>
+                                                    <p>Class :<code>.btn-complete</code></p>
+                                                    <button class="btn btn-complete btn-cons">Complete</button>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <p>Success Button</p>
+                                                    <p>Class :<code>.btn-success</code></p>
+                                                    <button class="btn btn-success btn-cons">Success</button>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <p>Danger Button</p>
+                                                    <p>Class :<code>.btn-danger</code></p>
+                                                    <button class="btn btn-danger btn-cons">Danger</button>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <p>Warning Button</p>
+                                                    <p>Class :<code>.btn-warning</code></p>
+                                                    <button class="btn btn-warning btn-cons">Warning</button>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <p>Default Button</p>
+                                                    <p>Class :<code>.btn-default</code></p>
+                                                    <button class="btn btn-default btn-cons">Default</button>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">Button Size</div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>Fancy larger or smaller buttons? 
+                                                We made it all Perfect.</h5>
+                                            <p>Size Might vary from smaller screen to a larger screen. We made few sizes that are pixel perfect and resposive</p>
+                                            <div></div>
+                                            <div>
+                                                <div class="p-5">
+                                                    Class :<code>.btn-large</code>
+                                                    <button class="btn btn-primary btn-large">Large</button>
+                                                </div>
+                                                <div class="p-5">
+                                                    Class :<code></code>
+                                                    <button class="btn btn-complete">Default</button>
+                                                </div>
+                                                <div class="p-5">
+                                                    Class :<code>.btn-small</code>
+                                                    <button class="btn btn-warning btn-small">Small</button>
+                                                </div>
+                                                <div class="p-5">
+                                                    Class :<code>.btn-tiny</code>
+                                                    <button class="btn btn-danger btn-tiny">Tiny</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">Rounded Button</div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>Fancy larger or smaller buttons? 
+                                                We made it all Perfect.</h5>
+                                            <p>Size Might vary from smaller screen to a larger screen. We made few sizes that are pixel perfect and resposive</p>
+                                            <div class="m-b-20">Class :<code>.btn-rounded</code></div>
+                                            <div>
+                                                <button class="btn btn-default btn-rounded btn-large m-r-20 m-b-10">Large</button>
+                                                <button class="btn btn-primary btn-rounded btn-large m-b-10">Large</button>
+                                                <br />
+                                                <button class="btn btn-rounded btn-default btn-small m-r-20 m-b-10">Small</button>
+                                                <button class="btn btn-rounded btn-primary btn-small m-b-10">Small</button>
+                                                <br />
+                                                <button class="btn btn-rounded btn-default btn-tiny m-r-20 m-b-10">Tiny</button>
+                                                <button class="btn btn-rounded btn-primary btn-tiny m-b-10">Tiny</button>
+                                            </div>
+                                        </div>
+                                        <div class="panel-heading">
+                                            <div class="panel-title">Button Icon</div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>Button với icon</h5>
+                                            <p>Bạn chỉ cần thêm class là chiếc button của bạn trở nên đẹp hơn</p>
+                                            <div><code>Code Ví dụ:&lt;i class="i-yl i-delete13" /&gt;</code></div>
+                                            <div>
+                                                <button class="btn btn-primary btn-large m-2">
+                                                    <i class="i-w i-e"></i>
+                                                    Button Icon
+                                                </button>
+                                                <button class="btn btn-primary btn-small">
+                                                    <i class="i-w i-e1"></i>
+                                                    Button Icon
+                                                </button>
+                                                <button class="btn btn-primary btn-tiny">
+                                                    <i class="i-w i-e2"></i>
+                                                    Button Icon
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                Button Page
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>Button dạng này dùng để làm nút phân trang</h5>
+                                            <p>Bạn sử dụng class <code>.page</code> để tạo nút. Và bạn có thể sử dụng các màu sắc dưới đây<br />
+                                                -màu 1:<code>.page-primary</code><br />
+                                                -màu 2:<code>.page-complete</code><br />
+                                                -màu 3:<code>.page-success</code><br />
+                                                -màu 4:<code>.page-warning</code><br />
+                                                -màu 5:<code>.page-danger</code><br />
+                                            </p>
+                                            <div class="page m-b-10">
+                                                <a>First</a>
+                                                <a>&larr;Previous</a>
+                                                <a>1</a>
+                                                <a>2</a>
+                                                <a>3</a>
+                                                <a>Next&rarr;</a>
+                                                <a>Last</a>
+                                            </div>
+                                            <div class="page page-primary m-b-10">
+                                                <a>First</a>
+                                                <a>&larr;Previous</a>
+                                                <a>1</a>
+                                                <a>2</a>
+                                                <a>3</a>
+                                                <a>Next&rarr;</a>
+                                                <a>Last</a>
+                                            </div>
+                                            <div class="page page-complete m-b-10">
+                                                <a>First</a>
+                                                <a>&larr;Previous</a>
+                                                <a>1</a>
+                                                <a>2</a>
+                                                <a>3</a>
+                                                <a>Next&rarr;</a>
+                                                <a>Last</a>
+                                            </div>
+                                            <div class="page page-success m-b-10">
+                                                <a>First</a>
+                                                <a>&larr;Previous</a>
+                                                <a>1</a>
+                                                <a>2</a>
+                                                <a>3</a>
+                                                <a>Next&rarr;</a>
+                                                <a>Last</a>
+                                            </div>
+                                            <div class="page page-warning m-b-10">
+                                                <a>First</a>
+                                                <a>&larr;Previous</a>
+                                                <a>1</a>
+                                                <a>2</a>
+                                                <a>3</a>
+                                                <a>Next&rarr;</a>
+                                                <a>Last</a>
+                                            </div>
+                                            <div class="page page-danger m-b-10">
+                                                <a>First</a>
+                                                <a>&larr;Previous</a>
+                                                <a>1</a>
+                                                <a>2</a>
+                                                <a>3</a>
+                                                <a>Next&rarr;</a>
+                                                <a>Last</a>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                Hình dạng Button page
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>Bạn chỉ cần thêm các class vào</h5>
+                                            <p><code>Class: .page-rounded</code></p>
+                                            <div class="page page-rounded m-b-10">
+                                                <a>First</a>
+                                                <a>&larr;Previous</a>
+                                                <a>1</a>
+                                                <a>2</a>
+                                                <a>3</a>
+                                                <a>Next&rarr;</a>
+                                                <a>Last</a>
+                                            </div>
+                                            <p class="pull-left"><code>Class: .page-rounded-all</code></p>
+                                            <div class="page page-rounded-all page-primary m-b-10">
+                                                <a>First</a>
+                                                <a>&larr;Previous</a>
+                                                <a>1</a>
+                                                <a>2</a>
+                                                <a>3</a>
+                                                <a>Next&rarr;</a>
+                                                <a>Last</a>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">Icons White</div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>Icon</h5>
+                                            <p>Bạn chỉ cần thêm class là bạn có 1 icon tuyệt đẹp</p>
+                                            <div class="p-5 m-b-10"><code>Code Ví dụ:&lt;i class="i-w i-delete13" /&gt;</code></div>
+                                            <div class="btn-primary p-5" box="icon">
+                                                <i class="i-w i-a" /><i class="i-w i-a1" /><i class="i-w i-a2" /><i class="i-w i-a3" /><i class="i-w i-a4" /><i class="i-w i-a5" /><i class="i-w i-a6" /><i class="i-w i-a7" /><i class="i-w i-a8" /><i class="i-w i-a9" />
+                                                <br />
+                                                <i class="i-w i-b" /><i class="i-w i-b1" /><i class="i-w i-b2" /><i class="i-w i-b3" /><i class="i-w i-b4" /><i class="i-w i-b5" /><i class="i-w i-b6" /><i class="i-w i-b7" /><i class="i-w i-b8" /><i class="i-w i-b9" />
+                                                <br />
+                                                <i class="i-w i-c" /><i class="i-w i-c1" /><i class="i-w i-c2" /><i class="i-w i-c3" /><i class="i-w i-c4" /><i class="i-w i-c5" /><i class="i-w i-c6" /><i class="i-w i-c7" /><i class="i-w i-c8" /><i class="i-w i-c9" /><i class="i-w i-c10" /><i class="i-w i-c11" /><i class="i-w i-c12" /><i class="i-w i-c13" /><i class="i-w i-c14" /><i class="i-w i-c15" />
+                                                <br />
+                                                <i class="i-w i-d" /><i class="i-w i-d1" /><i class="i-w i-d2" /><i class="i-w i-d3" /><i class="i-w i-d4" /><i class="i-w i-d5" /><i class="i-w i-d6" /><i class="i-w i-d7" /><i class="i-w i-d8" /><i class="i-w i-d9" /><i class="i-w i-d10" /><i class="i-w i-d11" /><i class="i-w i-d12" /><i class="i-w i-d13" /><i class="i-w i-d14" /><i class="i-w i-d15" />
+                                                <br />
+                                                <i class="i-w i-e"></i><i class="i-w i-e1"></i><i class="i-w i-e2"></i><i class="i-w i-e3"></i><i class="i-w i-e4"></i><i class="i-w i-e5"></i><i class="i-w i-e6"></i><i class="i-w i-e7"></i><i class="i-w i-e8"></i><i class="i-w i-e9"></i>
+                                                <br />
+                                                <i class="i-w i-g"></i><i class="i-w i-g1"></i><i class="i-w i-g2"></i><i class="i-w i-g3"></i><i class="i-w i-g4"></i><i class="i-w i-g5"></i><i class="i-w i-g6"></i><i class="i-w i-g7"></i><i class="i-w i-g8"></i><i class="i-w i-g9"></i><i class="i-w i-g10"></i><i class="i-w i-g11"></i><i class="i-w i-g12"></i><i class="i-w i-g13"></i>
+                                                <br />
+                                                <i class="i-w i-h"></i><i class="i-w i-h1"></i><i class="i-w i-h2"></i><i class="i-w i-h3"></i><i class="i-w i-h4"></i><i class="i-w i-h5"></i>
+                                                <br />
+                                                <i class="i-w i-i" /><i class="i-w i-i1" /><i class="i-w i-i2" /><i class="i-w i-i3" /><i class="i-w i-i4" /><i class="i-w i-i5" />
+                                                <br />
+                                                <i class="i-w i-k" /><i class="i-w i-k1" /><i class="i-w i-k2" /><i class="i-w i-k3" /><i class="i-w i-k4" /><i class="i-w i-k5" /><i class="i-w i-k7" />
+                                                <br />
+                                                <i class="i-w i-l"></i><i class="i-w i-l1"></i><i class="i-w i-l2"></i><i class="i-w i-l3"></i><i class="i-w i-l4"></i><i class="i-w i-l5"></i><i class="i-w i-l6"></i><i class="i-w i-l7"></i><i class="i-w i-l8"></i><i class="i-w i-l9"></i>
+                                                <br />
+                                                <i class="i-w i-n"></i><i class="i-w i-n1"></i><i class="i-w i-n2"></i><i class="i-w i-n3"></i><i class="i-w i-n4"></i><i class="i-w i-n5"></i><i class="i-w i-n6"></i><i class="i-w i-n7"></i><i class="i-w i-n8"></i><i class="i-w i-n9"></i><i class="i-w i-n10"></i><i class="i-w i-n11"></i><i class="i-w i-n12"></i><i class="i-w i-n13"></i><i class="i-w i-n14"></i><i class="i-w i-n15"></i>
+                                                <br />
+                                                <i class="i-w i-m"></i><i class="i-w i-m1"></i><i class="i-w i-m2"></i><i class="i-w i-m3"></i><i class="i-w i-m4"></i><i class="i-w i-m5"></i><i class="i-w i-m6"></i><i class="i-w i-m7"></i><i class="i-w i-m8"></i><i class="i-w i-m9"></i><i class="i-w i-m10"></i><i class="i-w i-m11"></i><i class="i-w i-m12"></i><i class="i-w i-m13"></i> <i class="i-w i-m14"></i><i class="i-w i-m15"></i>
+                                                <br />
+                                                <i class="i-w i-o"></i><i class="i-w i-o1"></i><i class="i-w i-o2"></i><i class="i-w i-o3"></i><i class="i-w i-o4"></i><i class="i-w i-o5"></i><i class="i-w i-o6"></i><i class="i-w i-o7"></i><i class="i-w i-o8"></i><i class="i-w i-o9"></i><i class="i-w i-o10"></i><i class="i-w i-o11"></i><i class="i-w i-o12"></i><i class="i-w i-o13"></i><i class="i-w i-o14"></i><i class="i-w i-o15"></i>
+                                                <br />
+                                                <i class="i-w i-p"></i><i class="i-w i-p1"></i><i class="i-w i-p2"></i><i class="i-w i-p3"></i><i class="i-w i-p4"></i><i class="i-w i-p5"></i><i class="i-w i-p6"></i><i class="i-w i-p7"></i>
+                                                <br />
+                                                <i class="i-w i-q" /><i class="i-w i-q1" /><i class="i-w i-q2" /><i class="i-w i-q3" /><i class="i-w i-q4" /><i class="i-w i-q5" /><i class="i-w i-q6" /><i class="i-w i-q7" /><i class="i-w i-q8" /><i class="i-w i-q9" /><i class="i-w i-q10" /><i class="i-w i-q11" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">Icons Black</div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>Icon</h5>
+                                            <p>Bạn chỉ cần thêm class là bạn có 1 icon tuyệt đẹp</p>
+                                            <div class="p-5 m-b-10"><code>Code Ví dụ:&lt;i class="i-bl i-delete13" /&gt;</code></div>
+                                            <div class="btn-complete p-5" box="icon">
+                                                <i class="i-bl i-a" /><i class="i-bl i-a1" /><i class="i-bl i-a2" /><i class="i-bl i-a3" /><i class="i-bl i-a4" /><i class="i-bl i-a5" /><i class="i-bl i-a6" /><i class="i-bl i-a7" /><i class="i-bl i-a8" /><i class="i-bl i-a9" />
+                                                <br />
+                                                <i class="i-bl i-b" /><i class="i-bl i-b1" /><i class="i-bl i-b2" /><i class="i-bl i-b3" /><i class="i-bl i-b4" /><i class="i-bl i-b5" /><i class="i-bl i-b6" /><i class="i-bl i-b7" /><i class="i-bl i-b8" /><i class="i-bl i-b9" />
+                                                <br />
+                                                <i class="i-bl i-c" /><i class="i-bl i-c1" /><i class="i-bl i-c2" /><i class="i-bl i-c3" /><i class="i-bl i-c4" /><i class="i-bl i-c5" /><i class="i-bl i-c6" /><i class="i-bl i-c7" /><i class="i-bl i-c8" /><i class="i-bl i-c9" /><i class="i-bl i-c10" /><i class="i-bl i-c11" /><i class="i-bl i-c12" /><i class="i-bl i-c13" /><i class="i-bl i-c14" /><i class="i-bl i-c15" />
+                                                <br />
+                                                <i class="i-bl i-d" /><i class="i-bl i-d1" /><i class="i-bl i-d2" /><i class="i-bl i-d3" /><i class="i-bl i-d4" /><i class="i-bl i-d5" /><i class="i-bl i-d6" /><i class="i-bl i-d7" /><i class="i-bl i-d8" /><i class="i-bl i-d9" /><i class="i-bl i-d10" /><i class="i-bl i-d11" /><i class="i-bl i-d12" /><i class="i-bl i-d13" /><i class="i-bl i-d14" /><i class="i-bl i-d15" />
+                                                <br />
+                                                <i class="i-bl i-e"></i><i class="i-bl i-e1"></i><i class="i-bl i-e2"></i><i class="i-bl i-e3"></i><i class="i-bl i-e4"></i><i class="i-bl i-e5"></i><i class="i-bl i-e6"></i><i class="i-bl i-e7"></i><i class="i-bl i-e8"></i><i class="i-bl i-e9"></i>
+                                                <br />
+                                                <i class="i-bl i-g"></i><i class="i-bl i-g1"></i><i class="i-bl i-g2"></i><i class="i-bl i-g3"></i><i class="i-bl i-g4"></i><i class="i-bl i-g5"></i><i class="i-bl i-g6"></i><i class="i-bl i-g7"></i><i class="i-bl i-g8"></i><i class="i-bl i-g9"></i><i class="i-bl i-g10"></i><i class="i-bl i-g11"></i><i class="i-bl i-g12"></i><i class="i-bl i-g13"></i>
+                                                <br />
+                                                <i class="i-bl i-h"></i><i class="i-bl i-h1"></i><i class="i-bl i-h2"></i><i class="i-bl i-h3"></i><i class="i-bl i-h4"></i><i class="i-bl i-h5"></i>
+                                                <br />
+                                                <i class="i-bl i-i" /><i class="i-bl i-i1" /><i class="i-bl i-i2" /><i class="i-bl i-i3" /><i class="i-bl i-i4" /><i class="i-bl i-i5" />
+                                                <br />
+                                                <i class="i-bl i-k" /><i class="i-bl i-k1" /><i class="i-bl i-k2" /><i class="i-bl i-k3" /><i class="i-bl i-k4" /><i class="i-bl i-k5" /><i class="i-bl i-k7" />
+                                                <br />
+                                                <i class="i-bl i-l"></i><i class="i-bl i-l1"></i><i class="i-bl i-l2"></i><i class="i-bl i-l3"></i><i class="i-bl i-l4"></i><i class="i-bl i-l5"></i><i class="i-bl i-l6"></i><i class="i-bl i-l7"></i><i class="i-bl i-l8"></i><i class="i-bl i-l9"></i>
+                                                <br />
+                                                <i class="i-bl i-n"></i><i class="i-bl i-n1"></i><i class="i-bl i-n2"></i><i class="i-bl i-n3"></i><i class="i-bl i-n4"></i><i class="i-bl i-n5"></i><i class="i-bl i-n6"></i><i class="i-bl i-n7"></i><i class="i-bl i-n8"></i><i class="i-bl i-n9"></i><i class="i-bl i-n10"></i><i class="i-bl i-n11"></i><i class="i-bl i-n12"></i><i class="i-bl i-n13"></i><i class="i-bl i-n14"></i><i class="i-bl i-n15"></i>
+                                                <br />
+                                                <i class="i-bl i-m"></i><i class="i-bl i-m1"></i><i class="i-bl i-m2"></i><i class="i-bl i-m3"></i><i class="i-bl i-m4"></i><i class="i-bl i-m5"></i><i class="i-bl i-m6"></i><i class="i-bl i-m7"></i><i class="i-bl i-m8"></i><i class="i-bl i-m9"></i><i class="i-bl i-m10"></i><i class="i-bl i-m11"></i><i class="i-bl i-m12"></i><i class="i-bl i-m13"></i> <i class="i-bl i-m14"></i><i class="i-bl i-m15"></i>
+                                                <br />
+                                                <i class="i-bl i-o"></i><i class="i-bl i-o1"></i><i class="i-bl i-o2"></i><i class="i-bl i-o3"></i><i class="i-bl i-o4"></i><i class="i-bl i-o5"></i><i class="i-bl i-o6"></i><i class="i-bl i-o7"></i><i class="i-bl i-o8"></i><i class="i-bl i-o9"></i><i class="i-bl i-o10"></i><i class="i-bl i-o11"></i><i class="i-bl i-o12"></i><i class="i-bl i-o13"></i><i class="i-bl i-o14"></i><i class="i-bl i-o15"></i>
+                                                <br />
+                                                <i class="i-bl i-p"></i><i class="i-bl i-p1"></i><i class="i-bl i-p2"></i><i class="i-bl i-p3"></i><i class="i-bl i-p4"></i><i class="i-bl i-p5"></i><i class="i-bl i-p6"></i><i class="i-bl i-p7"></i>
+                                                <br />
+                                                <i class="i-bl i-q" /><i class="i-bl i-q1" /><i class="i-bl i-q2" /><i class="i-bl i-q3" /><i class="i-bl i-q4" /><i class="i-bl i-q5" /><i class="i-bl i-q6" /><i class="i-bl i-q7" /><i class="i-bl i-q8" /><i class="i-bl i-q9" /><i class="i-bl i-q10" /><i class="i-bl i-q11" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">Icons Green</div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>Icon</h5>
+                                            <p>Bạn chỉ cần thêm class là bạn có 1 icon tuyệt đẹp</p>
+                                            <div class="p-5 m-b-10"><code>Code Ví dụ:&lt;i class="i-gr i-delete13" /&gt;</code></div>
+                                            <div class="btn-warning p-5" box="icon">
+                                                <i class="i-gr i-a" /><i class="i-gr i-a1" /><i class="i-gr i-a2" /><i class="i-gr i-a3" /><i class="i-gr i-a4" /><i class="i-gr i-a5" /><i class="i-gr i-a6" /><i class="i-gr i-a7" /><i class="i-gr i-a8" /><i class="i-gr i-a9" />
+                                                <br />
+                                                <i class="i-gr i-b" /><i class="i-gr i-b1" /><i class="i-gr i-b2" /><i class="i-gr i-b3" /><i class="i-gr i-b4" /><i class="i-gr i-b5" /><i class="i-gr i-b6" /><i class="i-gr i-b7" /><i class="i-gr i-b8" /><i class="i-gr i-b9" />
+                                                <br />
+                                                <i class="i-gr i-c" /><i class="i-gr i-c1" /><i class="i-gr i-c2" /><i class="i-gr i-c3" /><i class="i-gr i-c4" /><i class="i-gr i-c5" /><i class="i-gr i-c6" /><i class="i-gr i-c7" /><i class="i-gr i-c8" /><i class="i-gr i-c9" /><i class="i-gr i-c10" /><i class="i-gr i-c11" /><i class="i-gr i-c12" /><i class="i-gr i-c13" /><i class="i-gr i-c14" /><i class="i-gr i-c15" />
+                                                <br />
+                                                <i class="i-gr i-d" /><i class="i-gr i-d1" /><i class="i-gr i-d2" /><i class="i-gr i-d3" /><i class="i-gr i-d4" /><i class="i-gr i-d5" /><i class="i-gr i-d6" /><i class="i-gr i-d7" /><i class="i-gr i-d8" /><i class="i-gr i-d9" /><i class="i-gr i-d10" /><i class="i-gr i-d11" /><i class="i-gr i-d12" /><i class="i-gr i-d13" /><i class="i-gr i-d14" /><i class="i-gr i-d15" />
+                                                <br />
+                                                <i class="i-gr i-e"></i><i class="i-gr i-e1"></i><i class="i-gr i-e2"></i><i class="i-gr i-e3"></i><i class="i-gr i-e4"></i><i class="i-gr i-e5"></i><i class="i-gr i-e6"></i><i class="i-gr i-e7"></i><i class="i-gr i-e8"></i><i class="i-gr i-e9"></i>
+                                                <br />
+                                                <i class="i-gr i-g"></i><i class="i-gr i-g1"></i><i class="i-gr i-g2"></i><i class="i-gr i-g3"></i><i class="i-gr i-g4"></i><i class="i-gr i-g5"></i><i class="i-gr i-g6"></i><i class="i-gr i-g7"></i><i class="i-gr i-g8"></i><i class="i-gr i-g9"></i><i class="i-gr i-g10"></i><i class="i-gr i-g11"></i><i class="i-gr i-g12"></i><i class="i-gr i-g13"></i>
+                                                <br />
+                                                <i class="i-gr i-h"></i><i class="i-gr i-h1"></i><i class="i-gr i-h2"></i><i class="i-gr i-h3"></i><i class="i-gr i-h4"></i><i class="i-gr i-h5"></i>
+                                                <br />
+                                                <i class="i-gr i-i" /><i class="i-gr i-i1" /><i class="i-gr i-i2" /><i class="i-gr i-i3" /><i class="i-gr i-i4" /><i class="i-gr i-i5" />
+                                                <br />
+                                                <i class="i-gr i-k" /><i class="i-gr i-k1" /><i class="i-gr i-k2" /><i class="i-gr i-k3" /><i class="i-gr i-k4" /><i class="i-gr i-k5" /><i class="i-gr i-k7" />
+                                                <br />
+                                                <i class="i-gr i-l"></i><i class="i-gr i-l1"></i><i class="i-gr i-l2"></i><i class="i-gr i-l3"></i><i class="i-gr i-l4"></i><i class="i-gr i-l5"></i><i class="i-gr i-l6"></i><i class="i-gr i-l7"></i><i class="i-gr i-l8"></i><i class="i-gr i-l9"></i>
+                                                <br />
+                                                <i class="i-gr i-n"></i><i class="i-gr i-n1"></i><i class="i-gr i-n2"></i><i class="i-gr i-n3"></i><i class="i-gr i-n4"></i><i class="i-gr i-n5"></i><i class="i-gr i-n6"></i><i class="i-gr i-n7"></i><i class="i-gr i-n8"></i><i class="i-gr i-n9"></i><i class="i-gr i-n10"></i><i class="i-gr i-n11"></i><i class="i-gr i-n12"></i><i class="i-gr i-n13"></i><i class="i-gr i-n14"></i><i class="i-gr i-n15"></i>
+                                                <br />
+                                                <i class="i-gr i-m"></i><i class="i-gr i-m1"></i><i class="i-gr i-m2"></i><i class="i-gr i-m3"></i><i class="i-gr i-m4"></i><i class="i-gr i-m5"></i><i class="i-gr i-m6"></i><i class="i-gr i-m7"></i><i class="i-gr i-m8"></i><i class="i-gr i-m9"></i><i class="i-gr i-m10"></i><i class="i-gr i-m11"></i><i class="i-gr i-m12"></i><i class="i-gr i-m13"></i> <i class="i-gr i-m14"></i><i class="i-gr i-m15"></i>
+                                                <br />
+                                                <i class="i-gr i-o"></i><i class="i-gr i-o1"></i><i class="i-gr i-o2"></i><i class="i-gr i-o3"></i><i class="i-gr i-o4"></i><i class="i-gr i-o5"></i><i class="i-gr i-o6"></i><i class="i-gr i-o7"></i><i class="i-gr i-o8"></i><i class="i-gr i-o9"></i><i class="i-gr i-o10"></i><i class="i-gr i-o11"></i><i class="i-gr i-o12"></i><i class="i-gr i-o13"></i><i class="i-gr i-o14"></i><i class="i-gr i-o15"></i>
+                                                <br />
+                                                <i class="i-gr i-p"></i><i class="i-gr i-p1"></i><i class="i-gr i-p2"></i><i class="i-gr i-p3"></i><i class="i-gr i-p4"></i><i class="i-gr i-p5"></i><i class="i-gr i-p6"></i><i class="i-gr i-p7"></i>
+                                                <br />
+                                                <i class="i-gr i-q" /><i class="i-gr i-q1" /><i class="i-gr i-q2" /><i class="i-gr i-q3" /><i class="i-gr i-q4" /><i class="i-gr i-q5" /><i class="i-gr i-q6" /><i class="i-gr i-q7" /><i class="i-gr i-q8" /><i class="i-gr i-q9" /><i class="i-gr i-q10" /><i class="i-gr i-q11" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">Icons Yellow</div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>Icon</h5>
+                                            <p>Bạn chỉ cần thêm class là bạn có 1 icon tuyệt đẹp</p>
+                                            <div class="p-5 m-b-10"><code>Code Ví dụ:&lt;i class="i-yl i-delete13" /&gt;</code></div>
+                                            <div class="btn-default p-5" box="icon">
+                                                <i class="i-yl i-a" /><i class="i-yl i-a1" /><i class="i-yl i-a2" /><i class="i-yl i-a3" /><i class="i-yl i-a4" /><i class="i-yl i-a5" /><i class="i-yl i-a6" /><i class="i-yl i-a7" /><i class="i-yl i-a8" /><i class="i-yl i-a9" />
+                                                <br />
+                                                <i class="i-yl i-b" /><i class="i-yl i-b1" /><i class="i-yl i-b2" /><i class="i-yl i-b3" /><i class="i-yl i-b4" /><i class="i-yl i-b5" /><i class="i-yl i-b6" /><i class="i-yl i-b7" /><i class="i-yl i-b8" /><i class="i-yl i-b9" />
+                                                <br />
+                                                <i class="i-yl i-c" /><i class="i-yl i-c1" /><i class="i-yl i-c2" /><i class="i-yl i-c3" /><i class="i-yl i-c4" /><i class="i-yl i-c5" /><i class="i-yl i-c6" /><i class="i-yl i-c7" /><i class="i-yl i-c8" /><i class="i-yl i-c9" /><i class="i-yl i-c10" /><i class="i-yl i-c11" /><i class="i-yl i-c12" /><i class="i-yl i-c13" /><i class="i-yl i-c14" /><i class="i-yl i-c15" />
+                                                <br />
+                                                <i class="i-yl i-d" /><i class="i-yl i-d1" /><i class="i-yl i-d2" /><i class="i-yl i-d3" /><i class="i-yl i-d4" /><i class="i-yl i-d5" /><i class="i-yl i-d6" /><i class="i-yl i-d7" /><i class="i-yl i-d8" /><i class="i-yl i-d9" /><i class="i-yl i-d10" /><i class="i-yl i-d11" /><i class="i-yl i-d12" /><i class="i-yl i-d13" /><i class="i-yl i-d14" /><i class="i-yl i-d15" />
+                                                <br />
+                                                <i class="i-yl i-e"></i><i class="i-yl i-e1"></i><i class="i-yl i-e2"></i><i class="i-yl i-e3"></i><i class="i-yl i-e4"></i><i class="i-yl i-e5"></i><i class="i-yl i-e6"></i><i class="i-yl i-e7"></i><i class="i-yl i-e8"></i><i class="i-yl i-e9"></i>
+                                                <br />
+                                                <i class="i-yl i-g"></i><i class="i-yl i-g1"></i><i class="i-yl i-g2"></i><i class="i-yl i-g3"></i><i class="i-yl i-g4"></i><i class="i-yl i-g5"></i><i class="i-yl i-g6"></i><i class="i-yl i-g7"></i><i class="i-yl i-g8"></i><i class="i-yl i-g9"></i><i class="i-yl i-g10"></i><i class="i-yl i-g11"></i><i class="i-yl i-g12"></i><i class="i-yl i-g13"></i>
+                                                <br />
+                                                <i class="i-yl i-h"></i><i class="i-yl i-h1"></i><i class="i-yl i-h2"></i><i class="i-yl i-h3"></i><i class="i-yl i-h4"></i><i class="i-yl i-h5"></i>
+                                                <br />
+                                                <i class="i-yl i-i" /><i class="i-yl i-i1" /><i class="i-yl i-i2" /><i class="i-yl i-i3" /><i class="i-yl i-i4" /><i class="i-yl i-i5" />
+                                                <br />
+                                                <i class="i-yl i-k" /><i class="i-yl i-k1" /><i class="i-yl i-k2" /><i class="i-yl i-k3" /><i class="i-yl i-k4" /><i class="i-yl i-k5" /><i class="i-yl i-k7" />
+                                                <br />
+                                                <i class="i-yl i-l"></i><i class="i-yl i-l1"></i><i class="i-yl i-l2"></i><i class="i-yl i-l3"></i><i class="i-yl i-l4"></i><i class="i-yl i-l5"></i><i class="i-yl i-l6"></i><i class="i-yl i-l7"></i><i class="i-yl i-l8"></i><i class="i-yl i-l9"></i>
+                                                <br />
+                                                <i class="i-yl i-n"></i><i class="i-yl i-n1"></i><i class="i-yl i-n2"></i><i class="i-yl i-n3"></i><i class="i-yl i-n4"></i><i class="i-yl i-n5"></i><i class="i-yl i-n6"></i><i class="i-yl i-n7"></i><i class="i-yl i-n8"></i><i class="i-yl i-n9"></i><i class="i-yl i-n10"></i><i class="i-yl i-n11"></i><i class="i-yl i-n12"></i><i class="i-yl i-n13"></i><i class="i-yl i-n14"></i><i class="i-yl i-n15"></i>
+                                                <br />
+                                                <i class="i-yl i-m"></i><i class="i-yl i-m1"></i><i class="i-yl i-m2"></i><i class="i-yl i-m3"></i><i class="i-yl i-m4"></i><i class="i-yl i-m5"></i><i class="i-yl i-m6"></i><i class="i-yl i-m7"></i><i class="i-yl i-m8"></i><i class="i-yl i-m9"></i><i class="i-yl i-m10"></i><i class="i-yl i-m11"></i><i class="i-yl i-m12"></i><i class="i-yl i-m13"></i> <i class="i-yl i-m14"></i><i class="i-yl i-m15"></i>
+                                                <br />
+                                                <i class="i-yl i-o"></i><i class="i-yl i-o1"></i><i class="i-yl i-o2"></i><i class="i-yl i-o3"></i><i class="i-yl i-o4"></i><i class="i-yl i-o5"></i><i class="i-yl i-o6"></i><i class="i-yl i-o7"></i><i class="i-yl i-o8"></i><i class="i-yl i-o9"></i><i class="i-yl i-o10"></i><i class="i-yl i-o11"></i><i class="i-yl i-o12"></i><i class="i-yl i-o13"></i><i class="i-yl i-o14"></i><i class="i-yl i-o15"></i>
+                                                <br />
+                                                <i class="i-yl i-p"></i><i class="i-yl i-p1"></i><i class="i-yl i-p2"></i><i class="i-yl i-p3"></i><i class="i-yl i-p4"></i><i class="i-yl i-p5"></i><i class="i-yl i-p6"></i><i class="i-yl i-p7"></i>
+                                                <br />
+                                                <i class="i-yl i-q" /><i class="i-yl i-q1" /><i class="i-yl i-q2" /><i class="i-yl i-q3" /><i class="i-yl i-q4" /><i class="i-yl i-q5" /><i class="i-yl i-q6" /><i class="i-yl i-q7" /><i class="i-yl i-q8" /><i class="i-yl i-q9" /><i class="i-yl i-q10" /><i class="i-yl i-q11" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="panel panel-default">
+                                        <div class="panel panel-heading">
+                                            <div class="panel-title">Tab</div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>Dưới đây là 1 số vidu</h5>
+                                            <div class="row">
+                                                <div class="col-3 p-10">
+                                                    <div role="tablist">
+                                                        <div class="tab-head">
+                                                            <button type="button" data-tab="view">
+                                                                <i class="i-gr i-o2" />
+                                                                View
+                                                            </button>
+                                                            <button type="button" data-tab="code">
+                                                                <i class="i-gr i-o3" />
+                                                                Code
+                                                            </button>
+                                                        </div>
+                                                        <div class="tab-content">
+                                                            <div for="view">
+                                                                <h5>
+                                                                    Tab1
+                                                                </h5>
+                                                                <div class="form-group form-group-default">
+                                                                    <label>Tab1</label>
+                                                                    <input type="text" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                            <div for="code">
+                                                                <p>Code:<br />
+                                                                    &lt;div <code>role="tablist" </code>&gt;<br />
+                                                                    &nbsp;&nbsp;&lt;div <code>class="tab-head" </code>&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;button type="button" <code>data-tab="tab1" </code>&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;i class="i-gr i-o2" /&gt;tab1&lt;/button&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;button type="button" data-tab="tab2"&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;i class="i-gr i-o3" /&gt;tab2&lt;/button><br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;/div><br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;div <code>class="tab-content"</code>&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div <code>for="tab1"</code>&gt;Tab1&lt;/div><br />
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div for="tab2"&gt;Tab2&lt;/div&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+                                                                    &lt;/div&gt;<br />
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-3 p-10">
+                                                    <div role="tablist">
+                                                        <div class="tab-head border">
+                                                            <button type="button" data-tab="view">
+                                                                <i class="i-gr i-o2" />
+                                                                View
+                                                            </button>
+                                                            <button type="button" data-tab="code">
+                                                                <i class="i-gr i-o3" />
+                                                                Code
+                                                            </button>
+                                                        </div>
+                                                        <div class="tab-content">
+                                                            <div for="view">
+                                                                <h5>
+                                                                    Tab1
+                                                                </h5>
+                                                                <div class="form-group form-group-default">
+                                                                    <label>Tab1</label>
+                                                                    <input type="text" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                            <div for="code">
+                                                                <p>Code:<br />
+                                                                    &lt;div <code>role="tablist" </code>&gt;<br />
+                                                                    &nbsp;&nbsp;&lt;div <code>class="tab-head border" </code>&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;button type="button" <code>data-tab="tab1" </code>&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;i class="i-gr i-o2" /&gt;tab1&lt;/button&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;button type="button" data-tab="tab2"&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;i class="i-gr i-o3" /&gt;tab2&lt;/button><br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;/div><br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;div <code>class="tab-content"</code>&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div <code>for="tab1"</code>&gt;Tab1&lt;/div><br />
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div for="tab2"&gt;Tab2&lt;/div&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+                                                                    &lt;/div&gt;<br />
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-3 p-10">
+                                                    <div role="tablist" class="tab-primary">
+                                                        <div class="tab-head border">
+                                                            <button type="button" data-tab="view">
+                                                                <i class="i-gr i-o2" />
+                                                                View
+                                                            </button>
+                                                            <button type="button" data-tab="code">
+                                                                <i class="i-gr i-o3" />
+                                                                Code
+                                                            </button>
+                                                        </div>
+                                                        <div class="tab-content">
+                                                            <div for="view">
+                                                                <h5>
+                                                                    Tab1
+                                                                </h5>
+                                                                <div class="form-group form-group-default">
+                                                                    <label>Tab1</label>
+                                                                    <input type="text" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                            <div for="code">
+                                                                <p>Code:<br />
+                                                                    &lt;div <code>role="tablist" class="tab-primary"</code>&gt;<br />
+                                                                    &nbsp;&nbsp;&lt;div <code>class="tab-head border" </code>&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;button type="button" <code>data-tab="tab1" </code>&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;i class="i-gr i-o2" /&gt;tab1&lt;/button&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;button type="button" data-tab="tab2"&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;i class="i-gr i-o3" /&gt;tab2&lt;/button><br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;/div><br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;div <code>class="tab-content"</code>&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div <code>for="tab1"</code>&gt;Tab1&lt;/div><br />
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div for="tab2"&gt;Tab2&lt;/div&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+                                                                    &lt;/div&gt;<br />
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ui:define>
+            </ui:composition> 
+        </h:form>
+    </h:body>
+</html>

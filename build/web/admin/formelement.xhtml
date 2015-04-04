@@ -1,0 +1,561 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Form element</title>
+    </h:head>
+    <h:body>
+        <h:form id="frm_default" prependId="false">
+            <ui:composition template="template/layout.xhtml">
+                <ui:define name="content">
+                    <div id="content" class="width_common bg-white">
+                        <ul class="list_base left">
+                            <li><a class="a_base" id="a_user" href="button.xhtml"><i class="i_icon i_user" />Button</a></li>
+                            <li><a class="a_base" id="a_role" href="formelement.xhtml"><i class="i_icon i_role" />Form-element</a></li>
+                            <li><a class="a_base"  id="a_category" href="notifications.xhtml"><i class="i_icon i_category" />Notifications</a></li>
+                            <li><a class="a_base"  id="a_type" href="table.xhtml"><i class="i_icon i_type-news" />Tables</a> </li>
+                        </ul>
+                        <div class="container-fluid p-t-20">
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">Kiểu 1</div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>Page Default Style</h5>
+                                            <div class="form-group form-group-default required">
+                                                <label>Name</label>
+                                                <input type="text" placeholder="name" type-validate="letter" required="required" class="form-control notification-message" />
+                                            </div>
+                                            <div class="form-group form-group-default required">
+                                                <label>Username</label>
+                                                <input type="text" placeholder="username" type-validate="min:6 max:15" required="required" class="form-control notification-message" />
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-group-default required">
+                                                        <label>Password</label>
+                                                        <input type="text" placeholder="password" type-validate="min:6 max:15" class="form-control notification-message" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-group-default required">
+                                                        <label>Email</label>
+                                                        <input type="text" placeholder="email" type-validate="email" required="required" class="form-control notification-message" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-group-default disabled">
+                                                <label>Disable</label>
+                                                <input type="text" placeholder="name" class="form-control notification-message" disabled="disabled"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                Kiểu 2
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>Traditional Standard Style</h5>
+                                            <div class="form-group">
+                                                <label>Name</label>
+                                                <span class="help">eg:Trương Văn Dũng</span>
+                                                <input type="text" class="form-control" placeholder="name" required="required" />
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <div class="form-group">
+                                                        <label>Username</label>
+                                                        <span class="help">eg:dung123</span>
+                                                        <input type="text" class="form-control" placeholder="username" required="required" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-2">
+                                                    <div class="form-group">
+                                                        <label>Password</label>
+                                                        <span class="help">eg:dung123</span>
+                                                        <input type="password" class="form-control" placeholder="password" required="required" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <span class="help">eg:truongdung.vd@gmail.com</span>
+                                                <input type="text" class="form-control" placeholder="ex:truongdung.vd@gmail.com" required="required" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Disable</label>
+                                                <span class="help">ex:disable</span>
+                                                <input type="text" class="form-control" placeholder="disable" disabled="disabled" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">FORM OPTIONS</div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>Form Controls</h5>
+                                            <div role="tablist">
+                                                <div class="tab-head m-b-10">
+                                                    <button type="button" data-tab="view">
+                                                        <i class="i-gr i-o" />
+                                                        <label>View</label>
+                                                    </button>
+                                                    <button type="button" data-tab="code">
+                                                        <i class="i-gr i-o1" />
+                                                        <label>Code</label>
+                                                    </button>
+                                                </div>
+                                                <div class="tab-content">
+                                                    <div for="view">
+                                                        <div class="input-group transparent m-b-10">
+                                                            <span class="input-group-addon">
+                                                                <i class="i-bl i-g1" />
+                                                            </span>
+                                                            <input type="text" placeholder="username" data-select="select" class="form-control" />
+                                                            <ul class="select">
+                                                                <li>Nam</li>
+                                                                <li>Nữ</li>
+                                                                <li>Bê Đê</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="input-group m-b-10">
+                                                            <span class="input-group-addon btn-primary">
+                                                                <i class="i-w i-m12" />
+                                                            </span>
+                                                            <input type="text" placeholder="username" class="form-control" />
+                                                        </div>
+                                                        <div class="input-group m-b-10">
+                                                            <input type="text" placeholder="username" class="form-control" />
+                                                            <span class="input-group-addon btn-primary">
+                                                                <i class="i-w i-m12" />
+                                                            </span>
+                                                        </div>
+                                                        <div class="input-group form-group form-group-default m-b-10">
+                                                            <label>Username</label>
+                                                            <input type="text" placeholder="username" class="form-control" />
+                                                            <span class="input-group-addon btn-primary">
+                                                                Pages
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div for="code">
+                                                        <p><code>Code Ví dụ :</code><br />
+                                                            &lt;div class="<code>input-group</code> transparent m-b-10"&gt;<br />
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;span <code>class="input-group-addon"</code>&gt;<br />
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i class="i-bl i-g1" /&gt;<br />
+                                                            &lt;/span&gt;<br />
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" placeholder="username" class="form-control" /&gt;<br />
+                                                            &lt;/div&gt;<br />
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                SIZE OPTIONS
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>Kích cỡ của form input</h5>
+                                            <p>Bạn chỉ cần thêm class <code>(.label-lg|.label-sm)</code> cho label, class <code>(.input-lg|.input-sm)</code>cho input.</p>
+                                            <div role="tablist">
+                                                <div class="tab-head m-b-10">
+                                                    <button type="button" data-tab="view">
+                                                        <i class="i-gr i-o" />
+                                                        <label>View</label>
+                                                    </button>
+                                                    <button type="button" data-tab="code">
+                                                        <i class="i-gr i-o1" />
+                                                        <label>Code</label>
+                                                    </button>
+                                                </div>
+                                                <div class="tab-content">
+                                                    <div for="view">
+                                                        <div class="form-group form-group-default required">
+                                                            <label class="label-lg">Lớn</label>
+                                                            <input type="text" class="form-control input-lg" placeholder="lớn" required="required" />
+                                                        </div>
+                                                        <div class="form-group form-group-default required">
+                                                            <label>Vừa</label>
+                                                            <input type="text" class="form-control" placeholder="vừa" required="required" />
+                                                        </div>
+                                                        <div class="form-group form-group-default required">
+                                                            <label class="label-sm">Nhỏ</label>
+                                                            <input type="text" class="form-control input-sm" placeholder="nhỏ" required="required" />
+                                                        </div>
+                                                    </div>
+                                                    <div for="code">
+                                                        <p><code>Code Ví dụ :</code><br />
+                                                            &lt;div class="form-group form-group-default required"&gt;<br />
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;label <code>class="label-lg"</code>&gt;Lớn&lt;/label&gt;<br />
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" class="form-control <code>input-lg</code>" placeholder="lớn" required="required" /&gt;<br />
+                                                            &lt;/div&gt;<br />
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">CHECKBOX CONTROLS</div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <h5>
+                                                        Color Options
+                                                    </h5>
+
+                                                    <div role="tablist">
+                                                        <div class="tab-head m-b-10">
+                                                            <button type="button" data-tab="view">
+                                                                <i class="i-gr i-o" />
+                                                                <label>View</label>
+                                                            </button>
+                                                            <button type="button" data-tab="code">
+                                                                <i class="i-gr i-o1" />
+                                                                <label>Code</label>
+                                                            </button>
+                                                        </div>
+                                                        <div class="tab-content">
+                                                            <div for="view">
+                                                                <div class="checkbox">
+                                                                    <input type="checkbox" value="1" checked="true"  id="checkbox1" />
+                                                                    <label for="checkbox1">
+                                                                        Nam
+                                                                    </label>
+                                                                </div>
+                                                                <div class="checkbox check-primary">
+                                                                    <input type="checkbox" value="2" checked="true"  id="checkbox2" />
+                                                                    <label for="checkbox2">
+                                                                        Nữ(<b>Class :</b><code>.check-primary</code>)
+                                                                    </label>
+                                                                </div>
+                                                                <div class="checkbox check-complete">
+                                                                    <input type="checkbox" value="3" checked="true"  id="checkbox3" />
+                                                                    <label for="checkbox3">
+                                                                        Bê Đê(<b>Class :</b><code>.check-complete</code>)
+                                                                    </label>
+                                                                </div>
+                                                                <div class="checkbox check-success">
+                                                                    <input type="checkbox" value="4" checked="true"  id="checkbox4" />
+                                                                    <label for="checkbox4">
+                                                                        Less(<b>Class :</b><code>.check-success</code>)
+                                                                    </label>
+                                                                </div>
+                                                                <div class="checkbox check-warning">
+                                                                    <input type="checkbox" value="5" checked="true"  id="checkbox5" />
+                                                                    <label for="checkbox5">
+                                                                        Gay(<b>Class :</b><code>.check-warning</code>)
+                                                                    </label>
+                                                                </div>
+                                                                <div class="checkbox check-danger">
+                                                                    <input type="checkbox" value="6" checked="true"  id="checkbox6" />
+                                                                    <label for="checkbox6">
+                                                                        Aka(<b>Class :</b><code>.check-danger</code>)
+                                                                    </label>
+                                                                </div>
+                                                                <div class="checkbox check-info">
+                                                                    <input type="checkbox" value="7" checked="true" id="checkbox7" />
+                                                                    <label for="checkbox7">
+                                                                        Omo(<b>Class :</b><code>.check-info</code>)
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div for="code">
+                                                                <p>Dưới đây là những màu sắc cho checkbox</p>
+                                                                <p><code>Code Vidu :</code><br />
+                                                                    &lt;div <code>class="checkbox check-primary"</code>&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;input type="checkbox" value="1checked="true"  id="checkbox1" /&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;label for="checkbox1"&gt;Nam&lt;/label&gt;<br />
+                                                                    &lt;/div&gt;                                       
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <h5>
+                                                        Hình dạng của Checkbox
+                                                    </h5>
+                                                    <p>Bạn chỉ cần thêm <strong>Class :</strong><code>.checkbox-circle</code> là có ngay 1 checkbox tuyệt đẹp</p>
+                                                    <div role="tablist">
+                                                        <div class="tab-head m-b-10">
+                                                            <button type="button" data-tab="view">
+                                                                <i class="i-gr i-o" />
+                                                                <label>View</label>
+                                                            </button>
+                                                            <button type="button" data-tab="code">
+                                                                <i class="i-gr i-o1" />
+                                                                <label>Code</label>
+                                                            </button>
+                                                        </div>
+                                                        <div class="tab-content">
+                                                            <div for="view">
+                                                                <div class="checkbox check-primary checkbox-circle">
+                                                                    <input type="checkbox" value="1" id="checkbox0" checked="true" />
+                                                                    <label for="checkbox0">
+                                                                        Nam
+                                                                    </label>
+                                                                </div>
+                                                                <div class="checkbox check-success checkbox-circle">
+                                                                    <input type="checkbox" value="1" id="checkbox01" checked="true" />
+                                                                    <label for="checkbox01">
+                                                                        Nữ
+                                                                    </label>
+                                                                </div>
+                                                                <p>Với cb này, bạn chỉ cần thêm class <code>.roundedOne</code></p>
+                                                                <div class="roundedOne no-margin">
+                                                                    <input type="checkbox" value="2" id="ch" />
+                                                                    <label for="ch"></label>
+                                                                    <span>Nam</span>
+                                                                </div>
+                                                            </div>
+                                                            <div for="code">
+                                                                <p><code>Code Vidu :</code><br />
+                                                                    &lt;div <code>class="checkbox check-primary checkbox-circle"</code>&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;input type="checkbox" value="1checked="true"  id="checkbox1" /&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;label for="checkbox1"&gt;Nam&lt;/label&gt;<br />
+                                                                    &lt;/div&gt;                                       
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <h5>State Option</h5>
+                                                    <p>Bạn chỉ cần thêm thuộc tính <code>disabled</code> cho input</p>
+                                                    <div class="checkbox">
+                                                        <input disabled="disabled" type="checkbox" value="3" id="checkbox05" />
+                                                        <label for="checkbox05">
+                                                            Nam
+                                                        </label>
+                                                    </div>
+                                                    <div class="checkbox check-success">
+                                                        <input disabled="disabled" type="checkbox" checked="true" value="3" id="checkbox05" />
+                                                        <label for="checkbox05">
+                                                            Nam
+                                                        </label>
+                                                    </div>
+                                                    <div class="checkbox check-danger checkbox-circle">
+                                                        <input disabled="disabled" type="checkbox" checked="true" value="3" id="checkbox05" />
+                                                        <label for="checkbox05">
+                                                            Nam
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">Radio Option</div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <h5>Color Options</h5>
+                                                    <p>Bạn chỉ cần thêm class <code>radio</code>. Nếu muốn radio có màu sắc thì bạn sẽ sử dụng các class sau đây <br />
+                                                        <code>.radio-primary, .radio-complete, .radio-success,.radio-warning, .radio-danger, .radio-info</code></p>
+                                                    <div role="tablist">
+                                                        <div class="tab-head m-b-10">
+                                                            <button type="button" data-tab="view">
+                                                                <i class="i-gr i-o" />
+                                                                <label>View</label>
+                                                            </button>
+                                                            <button type="button" data-tab="code">
+                                                                <i class="i-gr i-o1" />
+                                                                <label>Code</label>
+                                                            </button>
+                                                        </div>
+                                                        <div class="tab-content">
+                                                            <div for="view">
+                                                                <div class="radio radio-success">
+                                                                    <input type="radio" name="optionyn" value="1" id="yes" />
+                                                                    <label for="yes">
+                                                                        Yes
+                                                                    </label>
+                                                                    <input type="radio" name="optionyn" checked="checked" value="2" id="no" />
+                                                                    <label for="no">
+                                                                        No
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div for="code">
+                                                                <p><code>Code ví dụ :</code><br />
+                                                                    &lt;div <code>class="radio radio-success"</code>&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;input type="radio" name="optionyn" value="1" id="yes" /&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;label for="yes"&gt; Yes&lt;/label&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;input type="radio" name="optionyn" checked="checked" value="2" id="no" /&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;label for="no"&gt;No&lt;/label&gt;<br />
+                                                                    &lt;/div&gt;                                       
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2">
+                                                    <h5>State Radio</h5>
+                                                    <p>Bạn chỉ cần thêm thuộc tính <code>disabled="disabled"</code> cho radio cần</p>
+                                                    <div class="radio radio-primary">
+                                                        <input type="radio" name="options" disabled="disabled" value="1" id="ok" />
+                                                        <label for="ok">
+                                                            He
+                                                        </label>
+                                                        <input type="radio" name="options" disabled="disabled" checked="checked" value="2" id="ba" />
+                                                        <label for="ba">
+                                                            Ha
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                Date and Dropdown Controls
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <h5>Date Picker</h5>
+                                                    <p>Bạn chỉ cần thêm class <code>.date</code> vào input cần</p>
+                                                    <div role="tablist">
+                                                        <div class="tab-head m-b-10">
+                                                            <button type="button" data-tab="view">
+                                                                <i class="i-gr i-o" />
+                                                                <label>View</label>
+                                                            </button>
+                                                            <button type="button" data-tab="code">
+                                                                <i class="i-gr i-o1" />
+                                                                <label>Code</label>
+                                                            </button>
+                                                        </div>
+                                                        <div class="tab-content">
+                                                            <div for="view">
+                                                                <div class="input-group m-b-10">
+                                                                    <input type="text" class="form-control date" />
+                                                                    <span class="input-group-addon date">
+                                                                        <i class="i-bl i-m2" />
+                                                                    </span>
+                                                                </div>
+                                                                <div class="input-group form-group form-group-default">
+                                                                    <label>Date</label>
+                                                                    <input type="text" class="form-control date" />
+                                                                    <span class="input-group-addon date">
+                                                                        <i class="i-bl i-m2" />
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div for="code">
+                                                                <p><code>Code ví dụ :</code><br/>
+                                                                    &lt;div class="input-group m-b-10"&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;input type="text" class="form-control date" /&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;span class="input-group-addon <code>date</code>"&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i class="i-bl i-m2" /&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;/span&gt;<br />
+                                                                    &lt;/div&gt;
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2">
+                                                    <h5>Dropdown control</h5>
+                                                    <p>Bạn chỉ cần thêm thuộc tính <code>data-select="select"</code> vào input cần và <code>list ul li</code> kế tiếp input đó </p>
+                                                    <div role="tablist">
+                                                        <div class="tab-head m-b-10">
+                                                            <button type="button" data-tab="view">
+                                                                <i class="i-gr i-o" />
+                                                                <label>View</label>
+                                                            </button>
+                                                            <button type="button" data-tab="code">
+                                                                <i class="i-gr i-o1" />
+                                                                <label>Code</label>
+                                                            </button>
+                                                        </div>
+                                                        <div class="tab-content">
+                                                            <div for="view">
+                                                                <div class="form-group m-b-10">
+                                                                    <label>Giới Tính</label>
+                                                                    <span class="help">eg:thử dropdown</span>
+                                                                    <input type="text" class="form-control" data-select="select" />
+                                                                    <ul class="select">
+                                                                        <li>Nam</li>
+                                                                        <li>Nữ</li>
+                                                                        <li>Bê Đê</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="form-group form-group-default">
+                                                                    <label>Giới Tính<span class="help">eg:thử dropdown</span></label>
+                                                                    <input type="text" class="form-control" data-select="select" />
+                                                                    <ul class="select">
+                                                                        <li>Nam</li>
+                                                                        <li>Nữ</li>
+                                                                        <li>Bê Đê</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div for="code">
+                                                                <p><code>Code ví dụ :</code><br />
+                                                                    &lt;div class="form-group m-b-10"&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;label&gt;Giới Tính&lt;/label&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;span class="help"&gt;eg:thử dropdown&lt;/span&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;&lt;input type="text" class="form-control" <code>data-select="select"</code> /&gt;<br />
+                                                                    &nbsp;&nbsp;&nbsp;<code>&lt;ul class="select no-default"&gt;<br />
+                                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Nam&lt;/li&gt;<br />
+                                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Nữ&lt;/li&gt;<br />
+                                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Bê Đê&lt;/li&gt;<br />
+                                                                        &lt;/ul&gt;</code><br />
+                                                                    &lt;/div&gt;<br />
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ui:define>
+            </ui:composition> 
+        </h:form>
+    </h:body>
+</html>

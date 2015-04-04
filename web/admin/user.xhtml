@@ -1,0 +1,371 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      >
+    <h:head>
+        <link href="../images/icon/icon_setting_32.png" rel="shortcut icon" type="image/x-icon"/>
+        <title>Admin haihai.net</title>
+    </h:head>
+    <h:body>
+        <h:form id="frm_default" prependId="false" enctype="multipart/form-data">
+            <ui:composition template="template/layout.xhtml">
+                <ui:define name="content">
+                    <div id="content" class="width_common bg-white">
+                        <ul class="list_base left">
+                            <li><a class="a_base" id="a_user" href="user.xhtml"><i class="i_icon i_user" />User</a></li>
+                            <li><a class="a_base" id="a_role" href="role.xhtml"><i class="i_icon i_role" />Role</a></li>
+                            <li><a class="a_base"  id="a_category" href="category.xhtml"><i class="i_icon i_category" />Category</a></li>
+                            <li><a class="a_base"  id="a_type" href="type-news.xhtml"><i class="i_icon i_type-news" />Type news</a> </li>
+                            <li><a  class="a_base" id="a_news" href="news.xhtml"><i class="i_icon i_news" />News</a> </li>
+                            <li><a  class="a_base" id="a_upload" href="upload.xhtml"><i class="glyphicon glyphicon-upload" />Upload</a> </li>
+                        </ul>
+                        <div class="main_base width_common">
+                            <ul class="list_base1 left">
+                                <li><a class="a_insert">
+                                        <i class="i-gr i-q2" />
+                                        Insert</a></li>
+                                <li><a class="a_show">
+                                        <i class="i-gr i-p3" />
+                                        Show</a></li>
+                            </ul>
+                            <c:if test="#{request.getAttribute('success')!=null}">
+                                <div class="pgn-wrapper" data-position="top-right">
+                                    <div class="pgn pgn-flip">
+                                        <div id="message" class="alert alert-success"><strong>Success: </strong>
+                                            <span>#{request.getAttribute("success")}</span>
+                                            <a class="close" data-dismiss="alert"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:if>
+                            <c:if test="#{request.getAttribute('failed')!=null}">
+                                <div class="pgn-wrapper" data-position="top-right">
+                                    <div class="pgn pgn-flip">
+                                        <div id="message" class="alert alert-danger"><strong>Danger: </strong>
+                                            <span>#{request.getAttribute("failed")}</span>
+                                            <a class="close" data-dismiss="alert"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:if>
+                            <div class="container-fluid p-t-10" data-hide="insert">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <div class="panel-title">
+                                                    <c:choose>
+                                                        <c:when test="#{userAdBean.flag==true}">
+                                                            Update
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            Insert
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    <h:inputHidden class="txt fld_rq" value="#{userAdBean.delist}" id="test" />
+                                                    <h:inputHidden value="#{userAdBean.flag}" />
+                                                    <h:inputHidden value="#{userAdBean.user.id}" />
+                                                </div>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                        <div class="form-group form-group-default required">
+                                                            <label>Name<span class="help">họ và tên của user</span></label>
+                                                            <input type="text" class="form-control" required="required" jsf:value="#{userAdBean.user.name}" placeholder="họ và tên" type-validate="min:6 letter" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="form-group form-group-default">
+                                                            <label>Role<span class="help">loại</span></label>
+                                                            <input type="hidden" jsf:value="#{userAdBean.user.roleid}" />
+                                                            <input type="text" class="form-control" data-select="select" />
+                                                            <ul class="select">
+                                                                <c:forEach items="#{roleBean.listRole}" var="item">
+                                                                    <li value="#{item.role_id}"><span></span><a>#{item.role_name}</a></li>
+                                                                </c:forEach>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                        <div class="form-group form-group-default required">
+                                                            <label>Username<span class="help">tên đăng nhập</span></label>
+                                                            <input type="text" class="form-control" required="required" jsf:value="#{userAdBean.user.username}" placeholder="tên đăng nhập" type-validate="min:6 max:15" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="form-group form-group-default required">
+                                                            <label>Password<span class="help">mật khẩu</span></label>
+                                                            <input type="password" class="form-control" required="required" jsf:value="#{userAdBean.user.password}" placeholder="mật khẩu" type-validate="min:6 max:15" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                        <div class="form-group form-group-default required">
+                                                            <label>Email</label>
+                                                            <input type="text" class="form-control" required="required" jsf:value="#{userAdBean.user.email}" placeholder="email của user" type-validate="email" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="input-group form-group form-group-default">
+                                                            <label>Birthday<span class="help">ngày sinh</span></label>
+                                                            <input type="text" class="form-control date" required="required" jsf:value="#{userAdBean.user.birthday}" type-validate="date" />
+                                                            <span class="input-group-addon date">
+                                                                <i class="i-bl i-m2" />
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                        <div class="row">
+                                                            <div class="col-1">
+                                                                <div class="row">
+                                                                    <div class="col-2">
+                                                                        <div class="form-group form-group-default">
+                                                                            <label>Gender</label>
+                                                                            <script type="text/javascript">
+                                                                                $(function() {
+                                                                                    $('input[name="gender"]').click(function() {
+                                                                                        $(this).parent().children('input[value-radio]').val($('input[name="gender"]:checked').val());
+                                                                                    });
+                                                                                });
+                                                                            </script>
+                                                                            <div class="radio radio-complete">
+                                                                                <input type="hidden" jsf:value="#{userAdBean.user.sex}" value-radio="" />
+                                                                                <input type="radio" name="gender" value="nam" id="nam" />
+                                                                                <label for="nam">Nam</label>
+                                                                                <input type="radio" name="gender" value="nu" id="nu" />
+                                                                                <label for="nu">Nữ</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-2">
+                                                                        <div class="form-group form-group-default">
+                                                                            <label>Status</label>
+                                                                            <script type="text/javascript">
+                                                                                $(function() {
+                                                                                    $('input[name="satus"]').click(function() {
+                                                                                        $(this).parent().children('input[value-radio]').val($('input[name="satus"]:checked').val());
+                                                                                    });
+                                                                                });
+                                                                            </script>
+                                                                            <div class="radio radio-complete">
+                                                                                <input type="hidden" jsf:value="#{userAdBean.user.status}" value-radio="" />
+                                                                                <input type="radio" name="satus" value="true" id="online" />
+                                                                                <label for="online">Online</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="form-group form-group-default">
+                                                            <label>Image<span class="help">ảnh của user</span></label>
+                                                            <span class="btn btn-default fileinput-button m-b-10">
+                                                                <i class="i-gr i-n13" />
+                                                                <span>Add files...</span>
+                                                                <input type="file" name="upload" id="upload" accept="image/*" jsf:value="#{userAdBean.part}" onchange="playSelectedFileInit();" multiple="multiple"/>
+                                                            </span>
+                                                            <div id="infor"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-1">
+                                                        <a class="btn btn-default" jsf:action="#{userAdBean.action()}">
+                                                            <i class="i-gr i-g"/>
+                                                            <span>Action</span>
+                                                        </a>
+                                                        <button type="reset" class="btn btn-danger">
+                                                            <i class="i-w i-g2"/>
+                                                            <span>Reset</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tbl-wrapper m-t-10" data-hide="show">
+                                <div class="table">
+                                    <div class="tbl-row row-header">
+                                        <div class="cell">
+                                            <div>
+                                                <div class="left"><i class="i_tbl"/></div>
+                                                <div class="p-2"> 
+                                                    <div style="width: 350px;float:left;height: 100%;">
+                                                        <div class="input-group transparent">
+                                                            <span class="input-group-addon">
+                                                                <i class="i-gr i-m8" />
+                                                            </span>
+                                                            <input type="text" placeholder="Tìm kiếm với tất cả từ khóa" id="search_all" class="form-control txt_search" />
+                                                        </div>
+                                                    </div>
+                                                    <h:selectOneMenu value="#{userAdBean.row_of_page}" class="showrc pull-right m-l-20 btn-rounded">
+                                                        <f:ajax execute="@this" event="change" onevent="changerow" />
+                                                        <f:selectItem noSelectionOption="true" itemLabel="--- Choose Rows show ---" />
+                                                        <f:selectItem itemValue="1" itemLabel="1"/>
+                                                        <f:selectItem itemValue="2" itemLabel="2"/>
+                                                        <f:selectItem itemValue="3" itemLabel="3"/>
+                                                        <f:selectItem itemValue="4" itemLabel="4"/>
+                                                        <f:selectItem itemValue="5" itemLabel="5"/>
+                                                        <f:selectItem itemValue="10" itemLabel="10"/>
+                                                        <f:selectItem itemValue="full" itemLabel="full"/>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tbl-row row-body">
+                                        <div class="cell">
+                                            <div class="table">
+                                                <div class="tbl-row">
+                                                    <div class="cell cell-title"><div class="cell cell-title">
+                                                            <a class="btn btn-default" jsf:action="#{userAdBean.deleteAll()}">
+                                                                <i class="i-gr i-o11" />
+                                                            </a></div></div>
+                                                    <div class="cell cell-title"><label>ID</label></div>
+                                                    <div class="cell cell-title"><label>Create Date</label></div>
+                                                    <div class="cell cell-title"><label>Write Date</label></div>
+                                                    <div class="cell cell-title"><label>Name</label></div>
+                                                    <div class="cell cell-title"><label>UserName</label></div>
+                                                    <div class="cell cell-title"><label>Password</label></div>
+                                                    <div class="cell cell-title"><label>Img</label></div>
+                                                    <div class="cell cell-title"><label>Email</label></div>
+                                                    <div class="cell cell-title"><label>Birthday</label></div>
+                                                    <div class="cell cell-title"><label>Sex</label></div>
+                                                    <div class="cell cell-title"><label>Role</label></div>
+                                                    <div class="cell cell-title"><label>Action</label></div>
+                                                </div>
+                                                <div class="tbl-row">
+                                                    <script type="text/javascript">
+                                                        $(function() {
+                                                            var id;
+                                                            var val;
+                                                            $('.txt_search').keyup(function() {
+                                                                id = $(this).attr("id");
+                                                                val = $(this).val();
+                                                            });
+                                                            $('#user_date,#user_role,#user_sex').change(function() {
+                                                                id = $(this).attr("id");
+                                                                val = $(this).val();
+                                                            });
+                                                            $('.search').click(function() {
+                                                                location.search = "id_search=" + id + "&amp;val_search=" + val;
+                                                            });
+                                                        });
+                                                    </script>
+                                                    <div class="cell cell-title"><label>Search</label></div>
+                                                    <div class="cell cell-title"><input type="text" class="form-control no-padding id txt_search" id="user_id"/></div>
+                                                    <div class="cell cell-title"><input type="text" class="form-control no-padding date txt_search datepicker" id="user_date" /></div>
+                                                    <div class="cell cell-title"></div>
+                                                    <div class="cell cell-title"><input type="text" class="form-control no-padding name txt_search" id="user_name"/></div>
+                                                    <div class="cell cell-title"><input type="text" class="form-control no-padding username txt_search" id="user_username" /></div>
+                                                    <div class="cell cell-title"></div>
+                                                    <div class="cell cell-title"></div>
+                                                    <div class="cell cell-title"></div>
+                                                    <div class="cell cell-title"></div>
+                                                    <div class="cell cell-title">
+                                                        <h:selectOneMenu id="user_sex">
+                                                            <f:selectItem itemLabel="---Gender---" noSelectionOption="true" />
+                                                            <f:selectItem itemLabel="Nam" itemValue="nam" />
+                                                            <f:selectItem itemLabel="Nữ" itemValue="nữ" />
+                                                        </h:selectOneMenu>
+                                                    </div>
+                                                    <div class="cell cell-title">
+                                                        <h:selectOneMenu id="user_role">
+                                                            <f:selectItem itemLabel="---Role---" noSelectionOption="true" />
+                                                            <f:selectItems value="#{roleBean.listRole}" var="role" itemLabel="#{role.role_name}" itemValue="#{role.role_id}" />
+                                                        </h:selectOneMenu>
+                                                    </div>
+                                                    <div class="cell cell-title">
+                                                        <button class="btn btn-default search">
+                                                            <i class="i-gr i-g11" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <c:forEach items="#{userAdBean.list}" var="item">
+                                                    <div class="tbl-row">
+                                                        <div class="cell cell-data">
+                                                            <div class="roundedOne">
+                                                                <input type="checkbox" value="None" class="cb" id="#{item.id}" name="check" />
+                                                                <label for="#{item.id}">
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell cell-data"><label>#{item.id}</label></div>
+                                                        <div class="cell cell-data"><label>#{item.create_date}</label></div>
+                                                        <div class="cell cell-data"><label>#{item.write_date}</label></div>
+                                                        <div class="cell cell-data"><label>#{item.name}</label></div>
+                                                        <div class="cell cell-data"><label>#{item.username}</label></div>
+                                                        <div class="cell cell-data"><label>#{item.password}</label></div>
+                                                        <div class="cell cell-data"><label>#{item.img}</label></div>
+                                                        <div class="cell cell-data"><label>#{item.email}</label></div>
+                                                        <div class="cell cell-data"><label>#{item.birthday}</label></div>
+                                                        <div class="cell cell-data"><label>#{item.sex}</label></div>
+                                                        <div class="cell cell-data"><label>#{item.role_name}</label></div>
+                                                        <div class="cell cell-data">
+                                                            <h:commandLink class="btn btn-default">
+                                                                <i class="i-gr i-m4" />
+                                                                <f:setPropertyActionListener value="true" target="#{userAdBean.flag}" />
+                                                                <f:setPropertyActionListener value="#{item}" target="#{userAdBean.user}" />
+                                                            </h:commandLink>
+                                                            <a class="btn btn-default" jsf:action="#{userAdBean.delete(item)}">
+                                                                <i class="i-gr i-o11" />
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </c:forEach>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tbl-row row-footer">
+                                        <div class="cell">
+                                            <div class="topage">
+                                                <div class="col-1">
+                                                    <div class="input-group transparent">
+                                                        <span class="input-group-addon">
+                                                            Page #{userAdBean.page}/#{userAdBean.number_page} :
+                                                        </span>
+                                                        <input type="text" placeholder="page" class="form-control" />
+                                                        <span class="input-group-addon" topage="topage">
+                                                            <i class="i-gr i-p7" />
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="pag_row" value="#{userAdBean.number_page}"  />
+                                            <input type="hidden" id="pag_page" value="#{userAdBean.page}" />
+                                            <div class="page pull-right">
+                                                <a data-page="1">First</a>
+                                                <a data-page="pre">&larr;Previous</a>
+                                                <c:forEach begin="#{userAdBean.begin}" end="#{userAdBean.end}" var="i">
+                                                    <a data-page="#{i}">#{i}</a>
+                                                </c:forEach>
+                                                <a data-page="next">Next&rarr;</a>
+                                                <a data-page="#{userAdBean.number_page}">Last</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ui:define>
+            </ui:composition> 
+        </h:form>
+    </h:body>
+</html>

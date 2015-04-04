@@ -1,0 +1,416 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      >
+    <h:head>
+        <link href="../images/icon/icon_setting_32.png" rel="shortcut icon" type="image/x-icon"/>
+        <title>Admin haihai.net</title>
+        <script type="text/javascript" src="#{request.contextPath}/js/jquery-2.1.1.min.js" />
+        <script type="text/javascript" src="#{request.contextPath}/admin/js/news.js" />
+        <script type="text/javascript" src="#{request.contextPath}/jwplayer/jwplayer.js"></script>
+        <script type="text/javascript">jwplayer.key = "h9Hk94XPyRVLvp3o2cVctXdh/OSReDO/NMi60A==";</script>
+    </h:head>
+    <h:body>
+        <h:form id="frm_default" prependId="false" enctype="multipart/form-data">
+            <ui:composition template="template/layout.xhtml">
+                <ui:define name="content">
+                    <div id="content" class="width_common bg-white">
+                        <ul class="list_base left">
+                            <li><a class="a_base" id="a_user" href="user.xhtml"><i class="i_icon i_user" />User</a></li>
+                            <li><a class="a_base" id="a_role" href="role.xhtml"><i class="i_icon i_role" />Role</a></li>
+                            <li><a class="a_base"  id="a_category" href="category.xhtml"><i class="i_icon i_category" />Category</a></li>
+                            <li><a class="a_base"  id="a_type" href="type-news.xhtml"><i class="i_icon i_type-news" />Type news</a></li>
+                            <li><a  class="a_base" id="a_news" href="news.xhtml"><i class="i_icon i_news" />News</a></li>
+                            <li><a  class="a_base" id="a_upload" href="upload.xhtml"><i class="glyphicon glyphicon-upload" />Upload</a> </li>
+                        </ul>
+                        <div class="main_base width_common">
+                            <ul class="list_base1 left">
+                                <li><a class="a_insert">
+                                        <i class="i-gr i-q2" />
+                                        Insert</a></li>
+                                <li><a class="a_show">
+                                        <i class="i-gr i-p3" />
+                                        Show</a></li>
+                            </ul>
+                            <h:inputHidden class="txt fld_rq" value="#{newsadBean.delist}" id="test" />
+                            <c:if test="#{request.getAttribute('success')!=null}">
+                                <div class="pgn-wrapper" data-position="top-right">
+                                    <div class="pgn pgn-flip">
+                                        <div id="message" class="alert alert-success"><strong>Success: </strong>
+                                            <span>#{request.getAttribute("success")}</span>
+                                            <a class="close" data-dismiss="alert"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:if>
+                            <c:if test="#{request.getAttribute('failed')!=null}">
+                                <div class="pgn-wrapper" data-position="top-right">
+                                    <div class="pgn pgn-flip">
+                                        <div id="message" class="alert alert-danger"><strong>Danger: </strong>
+                                            <span>#{request.getAttribute("failed")}</span>
+                                            <a class="close" data-dismiss="alert"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:if>
+                            <div class="container-fluid p-t-10" data-hide="insert">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <div class="panel-title">
+                                                    <c:choose>
+                                                        <c:when test="#{newsadBean.flag==true}">
+                                                            Update
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            Insert
+                                                        </c:otherwise>
+                                                    </c:choose>
+
+                                                    <h:inputHidden value="#{newsadBean.flag}" />
+                                                    <h:inputHidden value="#{newsadBean.news.news_id}" />
+                                                </div>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="form-group form-group-default required">
+                                                    <label>Title</label>
+                                                    <input  type="text" required="required" jsf:value="#{newsadBean.news.news_title}" placeholder="eg:tuổi thanh xuân" class="form-control" type-validate="min:6" />
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-2">
+                                                        <div class="form-group form-group-default required">
+                                                            <label>Alias</label>
+                                                            <input type="text" required="required" jsf:value="#{newsadBean.news.news_alias}" placeholder="eg:tuoi-thanh-xuan(dùng để làm url)" class="form-control" type-validate="min:6" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <div class="form-group form-group-default">
+                                                            <label>Author</label>
+                                                            <input type="text" placeholder="eg:Trương Dũng(tác giả của bài viết)" jsf:value="#{newsadBean.news.news_author}" class="form-control" type-validate="min:6" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-2">
+                                                        <div class="form-group form-group-default">
+                                                            <label>Source</label>
+                                                            <input type="text" jsf:value="#{newsadBean.news.news_source}" placeholder="eg:abc.com(nguồn của bài viết,video)" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <div class="form-group form-group-default required">
+                                                            <label>Type</label>
+                                                            <input type="text" jsf:value="#{newsadBean.news.type_id}" placeholder="eg:abc.com(nguồn của bài viết,video)" data-select="select" class="form-control" />
+                                                            <ul class="select lg">
+                                                                <c:forEach items="#{cateAdbean.listCategory}" var="cate">
+                                                                    <li class="weight-bold">#{cate.cate_name}</li>
+                                                                    <c:forEach items="#{typeAdbean.list}" var="type">
+                                                                        <c:if test="#{cate.cate_id == type.cate_id}">
+                                                                            <li class="sub" value="#{type.type_id}">#{type.type_name}</li>
+                                                                        </c:if>
+                                                                    </c:forEach>
+                                                                </c:forEach>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group form-group-default">
+                                                    <label>Url</label>
+                                                    <input type="text" jsf:value="#{newsadBean.news.news_url}" placeholder="eg:youtobe.com/abc/xyz(đường dẫn của video)" class="form-control" />
+                                                </div>
+                                                <div class="form-group form-group-default">
+                                                    <label>FileVtt</label>
+                                                    <input type="text" jsf:value="#{newsadBean.news.news_file_vtt}" placeholder="eg:filevtt.vtt(dùng để preview video)" class="form-control" />
+                                                </div>
+                                                <div class="form-group form-group-default">
+                                                    <label>Image sprite</label>
+                                                    <input type="text" jsf:value="#{newsadBean.news.news_img_sprite}" placeholder="eg:imgspite.jpg" class="form-control" />
+                                                </div>
+                                                <div class="form-group form-group-default">
+                                                    <label>Image</label>
+                                                    <input type="text" jsf:value="#{newsadBean.news.news_img}" placeholder="eg:abc.(jpg|png..)" class="form-control" />
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-2">
+                                                        <div class="form-group form-group-default">
+                                                            <label>Tag list</label>
+                                                            <input type="text" jsf:value="#{newsadBean.news.news_taglist}" placeholder="eg:truyện,thể thao" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <div class="form-group form-group-default">
+                                                            <label>Keyword</label>
+                                                            <input type="text" jsf:value="#{newsadBean.news.news_keyword}" placeholder="eg:bóng đá,thể thao" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group form-group-default">
+                                                    <label>Test</label>
+                                                    <div role="tablist">
+                                                        <div class="tab-head border">
+                                                            <button type="button" data-tab="html">
+                                                                <i class="i-gr i-o1" />
+                                                                HTML
+                                                            </button>
+                                                            <button type="button" data-tab="script">
+                                                                <i class="i-gr i-o2" />
+                                                                Script
+                                                            </button>
+                                                            <button type="button" data-tab="output">
+                                                                <i class="i-gr i-o3" />
+                                                                Output
+                                                            </button>
+                                                        </div>
+                                                        <div class="tab-content">
+                                                            <script type="text/javascript">
+                                                                $(function() {
+                                                                    $('.tab-head button[data-tab="output"]').click(function() {
+                                                                        var ttr = $('div[for="script"] textarea').val() + $('div[for="html"] textarea').val();
+                                                                        $('div[for="output"] .result').html("").append(ttr);
+                                                                    });
+                                                                });
+                                                            </script>
+                                                            <div for="html">
+                                                                <div class="form-group form-group-default no-bd-radius no-bd-t">
+                                                                    <textarea class="form-control"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div for="script">
+                                                                <div class="form-group form-group-default no-bd-radius no-bd-t">
+                                                                    <textarea class="form-control"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div for="output">
+                                                                <div class="result p-t-10" style="border:1px solid rgba(0,0,0,0.05)">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group form-group-default required">
+                                                    <label>Description</label>
+                                                    <textarea placeholder="mô tả cho bài viết" jsf:value="#{newsadBean.news.news_infor}" required="required" class="form-control max-h-150"></textarea>
+                                                </div>
+                                                <div class="form-group form-group-default">
+                                                    <label>Bài Viết</label>
+                                                    <textarea id="txtfull" placeholder="bài viết" jsf:value="#{newsadBean.news.news_full}"  class="form-control"></textarea>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-1">
+                                                        <a class="btn btn-default btn-save" jsf:action="#{newsadBean.insert()}">
+                                                            <i class="i-gr i-g" />
+                                                            Action
+                                                        </a>
+                                                        <button type="reset" class="btn btn-danger">
+                                                            <i class="i-w i-g2" />
+                                                            Reset
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tbl-wrapper" data-hide="show">
+                                <div class="table">
+                                    <div class="tbl-row row-header">
+                                        <div class="cell">
+                                            <div>
+                                                <div>
+                                                    <i class="i_tbl"/>
+                                                </div>
+                                                <div class="p-2">
+                                                    <div style="width: 350px;float:left;height: 100%;">
+                                                        <div class="input-group transparent">
+                                                            <span class="input-group-addon">
+                                                                <i class="i-gr i-m8" />
+                                                            </span>
+                                                            <input type="text" placeholder="Tìm kiếm với tất cả từ khóa" id="search_all" class="form-control txt_search" />
+                                                        </div>
+                                                    </div>
+                                                    <h:selectOneMenu value="#{newsadBean.row_of_page}" class="showrc pull-left m-l-20 btn-rounded">
+                                                        <f:ajax execute="@this" event="change" onevent="changerow" />
+                                                        <f:selectItem noSelectionOption="true" itemLabel="--- Choose Rows show ---" />
+                                                        <f:selectItem itemValue="1" itemLabel="1"/>
+                                                        <f:selectItem itemValue="2" itemLabel="2"/>
+                                                        <f:selectItem itemValue="3" itemLabel="3"/>
+                                                        <f:selectItem itemValue="4" itemLabel="4"/>
+                                                        <f:selectItem itemValue="5" itemLabel="5"/>
+                                                        <f:selectItem itemValue="10" itemLabel="10"/>
+                                                        <f:selectItem itemValue="full" itemLabel="full"/>
+                                                    </h:selectOneMenu>
+                                                    <select id="dunga" class="pull-left m-l-20 btn-rounded">
+                                                        <option>--- Choose filed hide here ---</option>
+                                                        <option value="id" label="ID"/>
+                                                        <option value="title" label="Title"/>
+                                                        <option value="alias" label="Alias"/>
+                                                        <option value="url" label="Url"/>
+                                                        <option value="imagesprite" label="ImageSprite"/>
+                                                        <option value="filevtt" label="FileVtt"/>
+                                                        <option value="source" label="Source"/>
+                                                        <option value="date" label="Date"/>
+                                                        <option value="description" label="Description"/>
+                                                        <option value="full" label="Full"/>
+                                                        <option value="check" label="Check"/>
+                                                        <option value="image" label="Image"/>
+                                                        <option value="view" label="View"/>
+                                                        <option value="taglist" label="TagList"/>
+                                                        <option value="keyword" label="Keyword"/>
+                                                        <option value="user" label="User"/>
+                                                        <option value="type" label="TypeNews"/>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tbl-row row-body">
+                                        <div class="cell">
+                                            <div class="table">
+                                                <div class="tbl-row">
+                                                    <div class="cell cell-title">
+                                                        <a class="btn btn-default" jsf:action="#{newsadBean.deletelist()}">
+                                                            <i class="i-gr i-o11" />
+                                                        </a></div>
+                                                    <div class="cell cell-title" hide-col="id"><label>ID</label></div>
+                                                    <div class="cell cell-title" hide-col="title"><label>Title</label></div>
+                                                    <div class="cell cell-title" hide-col="alias"><label>Alias</label></div>
+                                                    <div class="cell cell-title" hide-col="url"><label>Url</label></div>
+                                                    <div class="cell cell-title" hide-col="imagesprite"><label>ImgSprite</label></div>
+                                                    <div class="cell cell-title" hide-col="filevtt"><label>FileVtt</label></div>
+                                                    <div class="cell cell-title" hide-col="source"><label>Source</label></div>
+                                                    <div class="cell cell-title" hide-col="date"><label>Date</label></div>
+                                                    <div class="cell cell-title" hide-col="description"><label>Descrip</label></div>
+                                                    <div class="cell cell-title" hide-col="full"><label>Full</label></div>
+                                                    <div class="cell cell-title" hide-col="check"><label>Check</label></div>
+                                                    <div class="cell cell-title" hide-col="image"><label>Img</label></div>
+                                                    <div class="cell cell-title" hide-col="view"><label>View</label></div>
+                                                    <div class="cell cell-title" hide-col="taglist"><label>Taglist</label></div>
+                                                    <div class="cell cell-title" hide-col="keyword"><label>Keyword</label></div>
+                                                    <div class="cell cell-title" hide-col="user"><label>User</label></div>
+                                                    <div class="cell cell-title" hide-col="type"><label>Type</label></div>
+                                                    <div class="cell cell-title"><label>Action</label></div>
+                                                </div>
+                                                <div class="tbl-row">
+                                                    <script type="text/javascript">
+                                                        $(function() {
+                                                            var id;
+                                                            var val;
+                                                            $('.txt_search').keyup(function() {
+                                                                id = $(this).attr("id");
+                                                                val = $(this).val();
+                                                            });
+                                                            $('#datepicker').change(function() {
+                                                                id = 'datepicker';
+                                                                val = $(this).val();
+                                                            });
+                                                            $('.search').click(function() {
+                                                                location.search = "id_search=" + id + "&amp;val_search=" + val;
+                                                            });
+
+                                                        });
+                                                    </script>
+                                                    <div class="cell cell-title"><label class="opct-8">Search</label></div>
+                                                    <div class="cell cell-title" hide-col="id"><input type="text" class="form-control no-padding txt_search" id="news_id"  /></div>
+                                                    <div class="cell cell-title" hide-col="title"><input type="text" class="form-control no-padding txt_search" id="news_title"  /></div>
+                                                    <div class="cell cell-title" hide-col="alias"></div>
+                                                    <div class="cell cell-title" hide-col="url"><input type="text" class="form-control no-padding txt_search" id="news_url" /></div>
+                                                    <div class="cell cell-title" hide-col="imagesprite"><input type="text" class="form-control no-padding txt_search" id="news_img_sprite" /></div>
+                                                    <div class="cell cell-title" hide-col="filevtt"></div>
+                                                    <div class="cell cell-title" hide-col="source"></div>
+                                                    <div class="cell cell-title" hide-col="date"><div class="input-group m-b-10"><input type="text" class="form-control date no-padding txt_search" id="datepicker" /><span class="input-group-addon date"><i class="i-bl i-m2" /></span></div>
+                                                    </div>
+                                                    <div class="cell cell-title" hide-col="description"></div>
+                                                    <div class="cell cell-title" hide-col="full"><input type="text" class="form-control no-padding  txt_search" id="news_full" /></div>
+                                                    <div class="cell cell-title" hide-col="check"><input type="text" class="form-control no-padding  txt_search" id="news_check" /></div>
+                                                    <div class="cell cell-title" hide-col="image"></div>
+                                                    <div class="cell cell-title" hide-col="view"><input type="text" class="form-control no-padding  txt_search" id="news_view" /></div>
+                                                    <div class="cell cell-title" hide-col="taglist"><input type="text" class="form-control no-padding  txt_search" id="news_taglist" /></div>
+                                                    <div class="cell cell-title" hide-col="keyword"><input type="text" class="form-control no-padding  txt_search" id="news_keyword" /></div>
+                                                    <div class="cell cell-title" hide-col="user"><input type="text" class="form-control no-padding txt_search" id="u_id"/></div>
+                                                    <div class="cell cell-title" hide-col="type"><input type="text" class="form-control no-padding txt_search" id="type_id"/></div>
+                                                    <div class="cell cell-title">
+                                                        <button class="btn btn-default search">
+                                                            <i class="i-gr i-g11" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <c:forEach items="#{newsadBean.list}" var="item">
+                                                    <div class="tbl-row">
+                                                        <div class="cell cell-data"><div class="roundedOne"><input type="checkbox" value="None" style="visibility: hidden" class="cb" id="#{item.news_id}" name="check" /><label for="#{item.news_id}"></label></div></div>
+                                                        <div class="cell cell-data" hide-col="id"><label>#{item.news_id}</label></div>
+                                                        <div class="cell cell-data" hide-col="title"><label>#{item.news_title}</label></div>
+                                                        <div class="cell cell-data" hide-col="alias"><label>#{item.news_alias}</label></div>
+                                                        <div class="cell cell-data" hide-col="url"><label>#{item.news_url}</label></div>
+                                                        <div class="cell cell-data" hide-col="imagesprite"><label>#{item.news_img_sprite}</label></div>
+                                                        <div class="cell cell-data" hide-col="filevtt"><label>#{item.news_file_vtt}</label></div>
+                                                        <div class="cell cell-data" hide-col="source"><label>#{item.news_source}</label></div>
+                                                        <div class="cell cell-data" hide-col="date"><label>#{item.news_date}</label></div>
+                                                        <div class="cell cell-data" hide-col="description"><label>#{item.news_infor}</label></div>
+                                                        <div class="cell cell-data" hide-col="full"><label>#{item.news_full}</label></div>
+                                                        <div class="cell cell-data" hide-col="check"><label>#{item.news_check}</label></div>
+                                                        <div class="cell cell-data" hide-col="image"><label>#{item.news_img}</label></div>
+                                                        <div class="cell cell-data" hide-col="view"><label>#{item.news_view}</label></div>
+                                                        <div class="cell cell-data" hide-col="taglist"><label>#{item.news_taglist}</label></div>
+                                                        <div class="cell cell-data" hide-col="keyword"><label>#{item.news_keyword}</label></div>
+                                                        <div class="cell cell-data" hide-col="user"><label>#{item.username}</label></div>
+                                                        <div class="cell cell-data" hide-col="type"><label>#{item.type_id}</label></div>
+                                                        <div class="cell cell-data">
+                                                            <h:commandLink class="btn btn-default">
+                                                                <i class="i-gr i-o11" />
+                                                                <f:setPropertyActionListener value="#{item}" target="#{newsadBean.news}" />
+                                                                <f:setPropertyActionListener value="true" target="#{newsadBean.flag}" />
+                                                            </h:commandLink>
+                                                            <a class="btn btn-default" jsf:action="#{userAdBean.delete(item)}" >
+                                                                <i class="i-gr i-m4" />
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </c:forEach>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tbl-row row-footer">
+                                        <div class="cell">
+                                            <div class="topage">
+                                                <div class="col-1">
+                                                    <div class="input-group transparent">
+                                                        <span class="input-group-addon">
+                                                            Page #{newsadBean.page}/#{newsadBean.number_page} :
+                                                        </span>
+                                                        <input type="text" placeholder="page" class="form-control" />
+                                                        <span class="input-group-addon" topage="topage">
+                                                            <i class="i-gr i-p7" />
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="pag_row" value="#{newsadBean.number_page}" />
+                                            <input type="hidden" id="pag_page" value="#{newsadBean.page}" />
+                                            <div class="page pull-right">
+                                                <a data-page="1">First</a>
+                                                <a data-page="pre">&larr;Previous</a>
+                                                <c:forEach begin="#{newsadBean.begin}" end="#{newsadBean.end}" var="i">
+                                                    <a data-page="#{i}">#{i}</a>
+                                                </c:forEach>
+                                                <a data-page="next">Next&rarr;</a>
+                                                <a data-page="#{newsadBean.number_page}">Last</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ui:define>
+            </ui:composition> 
+        </h:form>
+    </h:body>
+</html>

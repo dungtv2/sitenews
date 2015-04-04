@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <link href="../images/icon/icon_setting_32.png" rel="shortcut icon" type="image/x-icon"/>
+        <title>Admin haihai.net</title>
+    </h:head>
+    <h:body>
+        <h:form id="frm_default" prependId="false">
+            <ui:composition template="template/layout.xhtml">
+                <ui:define name="content">
+                    <div id="content" class="width_common bg-white">
+                        <div class="container-fluid p-t-10">
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                My Profile
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group form-group-default">
+                                                <label>Username</label>
+                                                <input type="text" placeholder="username" required="required" type-validate="letter" class="form-control" />
+                                            </div>
+                                            <div class="form-group form-group-default">
+                                                <label>Password</label>
+                                                <input type="password" placeholder="oldpass" class="form-control" />
+                                            </div>
+                                            <div class="form-group form-group-default">
+                                                <label>NewPass</label>
+                                                <input type="password" placeholder="newpass" class="form-control" />
+                                            </div>
+                                            <div class="form-group form-group-default">
+                                                <label>NewPass Confirm</label>
+                                                <input type="password" placeholder="confirm pass" class="form-control" />
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-1">
+                                                    <a class="btn btn-default">
+                                                        <i class="i-gr i-g" />
+                                                        Change
+                                                    </a>
+                                                    <a class="btn btn-default">
+                                                        <i class="i-gr i-g2" />
+                                                        Reset
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ui:define>
+            </ui:composition> 
+        </h:form>
+    </h:body>
+</html>
+

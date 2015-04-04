@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      >
+    <h:head>
+        <link href="../images/icon/icon_setting_32.png" rel="shortcut icon" type="image/x-icon"/>
+        <title>Admin haihai.net</title>
+    </h:head>
+    <h:body>
+        <h:form id="frm_default" prependId="false">
+            <ui:composition template="template/layout.xhtml">
+                <ui:define name="content">
+                    <div id="content" class="width_common">
+                        <ul class="list_base left">
+                            <li><a class="a_base" id="a_user" href="user.xhtml"><i class="i_icon i_user" />User</a></li>
+                            <li><a class="a_base" id="a_role" href="role.xhtml"><i class="i_icon i_role" />Role</a></li>
+                            <li><a class="a_base"  id="a_category" href="category.xhtml"><i class="i_icon i_category" />Category</a></li>
+                            <li><a class="a_base"  id="a_type" href="type-news.xhtml"><i class="i_icon i_type-news" />Type news</a> </li>
+                            <li><a  class="a_base" id="a_news" href="news.xhtml"><i class="i_icon i_news" />News</a> </li>
+                            <li><a  class="a_base" id="a_upload" href="upload.xhtml"><i class="glyphicon glyphicon-upload" />Upload</a> </li>
+                        </ul>
+                        <div class="main_base width_common">
+                            <ul class="list_base1 left">
+                                <li><a class="a_insert">Color</a></li>
+                                <li><a class="a_show">Typography</a></li>
+                                <li><a class="a_createfile">Icons</a></li>
+                                <li><a class="a_createfile">Buttons</a></li>
+                                <li><a class="a_createfile">Notifications</a></li>
+                                <li><a class="a_createfile">Tabs</a></li>
+                                <li><a class="a_createfile">Radio</a></li>
+                                <li><a class="a_createfile">CheckBox</a></li>
+                                <li><a class="a_createfile">Select</a></li>
+                                <li><a class="a_createfile">Sliders</a></li>
+                                <li><a class="a_createfile">CheckBox</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </ui:define>
+            </ui:composition> 
+        </h:form>
+    </h:body>
+</html>

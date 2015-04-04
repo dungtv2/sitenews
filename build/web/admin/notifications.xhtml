@@ -1,0 +1,287 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js" />
+        <script type="text/javascript" src="js/page.js" />
+        <script type="text/javascript">
+            $(function() {
+                efal();
+            });
+            function efal() {
+                var t, vl = function(m) {
+                    return $(m).val();
+                };
+                $('div[role="tablist"] .tab-head [data-tab]').click(function() {
+                    var th = $(this);
+                    t = th.attr("data-tab");
+                    th.parent().find('[data-tab]').removeClass("active-block");
+                    th.addClass("active-block");
+                });
+                $('.show-notification').click(function() {
+                    var ta = vl('select[type-alert="type"]'), p = vl('select[pos-alert="pos"]'), v = vl('.notification-message');
+                    if (t === "bar") {
+                        bar(ta, p, v);
+                    } else if (t === "flip") {
+                        flip(ta, p, v);
+                    } else if (t === "circle") {
+                        circle(ta, p, 'xin chao', v);
+                    } else if (t === "simple") {
+                        simple(ta, p, v);
+                    }
+                    close();
+                });
+            }
+        </script>
+    </h:head>
+    <h:body>
+        <h:form id="frm_default" prependId="false">
+            <ui:composition template="template/layout.xhtml">
+                <ui:define name="content">
+                    <div id="content" class="width_common bg-white">
+                        <ul class="list_base left">
+                            <li><a class="a_base" id="a_user" href="button.xhtml"><i class="i_icon i_user" />Button</a></li>
+                            <li><a class="a_base" id="a_role" href="formelement.xhtml"><i class="i_icon i_role" />Form-element</a></li>
+                            <li><a class="a_base"  id="a_category" href="notifications.xhtml"><i class="i_icon i_category" />Notifications</a></li>
+                            <li><a class="a_base"  id="a_type" href="table.xhtml"><i class="i_icon i_type-news" />Tables</a> </li>
+                        </ul>
+                        <div class="pgn-wrapper" data-position="top-right"></div>
+                        <div class="container-fluid container-fixed-lg p-t-10">
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">Lựa chọn 1 kiểu thông báo</div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row no-margin">
+                                                <div role="tablist">
+                                                    <div class="tab-head p-b-10">
+                                                        <button type="button" data-tab="bar">
+                                                            <i class="i-gr i-o" />
+                                                            <label>Bar</label>
+                                                        </button>
+                                                        <button type="button" data-tab="flip">
+                                                            <i class="i-gr i-o1" />
+                                                            <label>Flip</label>
+                                                        </button>
+                                                        <button type="button" data-tab="circle">
+                                                            <i class="i-gr i-o2" />
+                                                            <label>Circle</label>
+                                                        </button>
+                                                        <button type="button" data-tab="simple">
+                                                            <i class="i-gr i-o3" />
+                                                            <label>Simple</label>
+                                                        </button>
+                                                    </div>
+                                                    <div class="tab-content">
+                                                        <div for="bar">
+                                                            <h4 class="semi-bold">Thông báo dạng thanh</h4>
+                                                            <h5 class="">Đánh giá: đẹp</h5>
+                                                            <p class="small opct-7">Code :
+                                                                <pre>
+&lt;div class="pgn-wrapper" data-position="bottom-right"&gt;
+    &lt;div class="pgn pgn-bar"&gt;
+        &lt;div class="alert alert-success"&gt;
+            &lt;button type="button" class="close" data-dismiss="alert"&gt;&lt;/button&gt;
+            &lt;span&gt;' + value + '!&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                                            </p>
+                                                        </div>
+                                                        <div for="flip">
+                                                            <h4 class="semi-bold">Thông báo dạng lật</h4>
+                                                            <h5 class="">Đánh giá: đẹp</h5>
+                                                            <p class="small opct-7">Code :
+                                                                <pre>
+&lt;div class="pgn-wrapper" data-position="bottom-right"&gt;
+    &lt;div class="pgn pgn-flip"&gt;
+        &lt;div class="alert alert-success"&gt;
+            &lt;button type="button" class="close" data-dismiss="alert"&gt;&lt;/button&gt;
+            &lt;span&gt;' + value + '!&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                                            </p>
+                                                        </div>
+                                                        <div for="circle">
+                                                            <h4 class="semi-bold">Thông báo dạng tròn</h4>
+                                                            <h5 class="">Đánh giá: đẹp</h5>
+                                                            <p class="small opct-7">Code :<pre>
+&lt;div class="pgn-wrapper" data-position="bottom-right"&gt;
+    &lt;div class="pgn pgn-circle"&gt;
+        &lt;div class="alert alert-success"&gt;
+            &lt;div class="pgn-thumbnail"&gt;
+                &lt;div&gt;
+                    &lt;img width="40" height="40" style="display: inline-block;"
+                     src="#{request.contextPath}/images/thethao/img_thethao1.jpg" alt="" /&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="pgn-message"&gt;
+                &lt;div&gt;
+                    &lt;p class="bold"&gt;Name&lt;/p&gt;
+                    &lt;p&gt;Value!&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button type="button" class="close" data-dismiss="alert"&gt;&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                                            </p>
+                                                        </div>
+                                                        <div for="simple">
+                                                            <h4 class="semi-bold">Thông báo dạng thanh</h4>
+                                                            <h5 class="">Đánh giá: đẹp</h5>
+                                                            <p class="small opct-7">Code :
+                                                                <pre>
+&lt;div class="pgn-wrapper" data-position="bottom-right"&gt;
+    &lt;div class="pgn pgn-simple"&gt;
+        &lt;div class="alert alert-success"&gt;
+            &lt;button type="button" class="close" data-dismiss="alert"&gt;&lt;/button&gt;
+            &lt;span&gt;' + value + '!&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="config-notification">
+                                                    <div style="padding: 5px 10px">
+                                                        <select class="btn-rounded" type-alert="type">
+                                                            <option>Lựa chọn kiểu thông báo</option>
+                                                            <option value="info">Info</option>
+                                                            <option value="warning">Warning</option>
+                                                            <option value="success">Success</option>
+                                                            <option value="danger">Danger</option>
+                                                            <option value="default">Default</option>
+                                                        </select>
+                                                        <select class="btn-rounded" pos-alert="pos">
+                                                            <option>Lựa chọn vị trí thông báo</option>
+                                                            <option value="top">Top</option>
+                                                            <option value="bottom">Bottom</option>
+                                                            <option value="top-left">Top-Left</option>
+                                                            <option value="top-right">Top-Right</option>
+                                                            <option value="bottom-left">Bottom-Left</option>
+                                                            <option value="bottom-right">Bottom-Right</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group form-group-default required">
+                                                        <label class="opct-lg">Message</label>
+                                                        <input type="text" class="form-control notification-message" placeholder="Type your message here" required="" />
+                                                    </div>
+                                                    <button type="button" class="btn btn-primary show-notification">Show
+                                                        <i class="i-w i-g" />
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">Lựa Chọn 1 kiểu thông báo đơn giản
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row no-margin">
+                                                <h3>Các kiểu thông báo</h3>
+                                                <p>Cách sử dụng: bạn chỉ cần thêm class của loại thông báo</p>
+                                                <p><strong style="color: #0086b3">Loại 1</strong>: Tên : Nguy hiểm , class : <code>.alert-danger</code></p>
+                                                <div class="alert alert-danger" role="alert">
+                                                    <button type="button" class="close"></button>
+                                                    <strong>Danger: </strong>Chết mịa mày
+                                                </div>
+                                                <p><strong style="color: #0086b3">Loại 2</strong>: Tên : Cảnh báo , class : <code>.alert-warning</code></p>
+                                                <div class="alert alert-warning" role="alert">
+                                                    <button type="button" class="close"></button>
+                                                    <strong>Warning: </strong>Cẩn thận nha cu
+                                                </div>
+                                                <p><strong style="color: #0086b3">Loại 3</strong>: Tên : Thành Công , class : <code>.alert-success</code></p>
+                                                <div class="alert alert-success" role="alert">
+                                                    <button type="button" class="close"></button>
+                                                    <strong>Success: </strong>Chúc mừng cu
+                                                </div>
+                                                <p><strong style="color: #0086b3">Loại 4</strong>: Tên : Thông tin , class : <code>.alert-info</code></p>
+                                                <div class="alert alert-info" role="alert">
+                                                    <button type="button" class="close"></button>
+                                                    <strong>Info: </strong>Cu rất đẹp troai
+                                                </div>
+                                                <p><strong style="color: #0086b3">Loại 5</strong>: Loại thông báo có đường viền :1px , class : <code>.bordered-1px</code></p>
+                                                <div class="alert alert-info bordered-1px" role="alert">
+                                                    <button type="button" class="close"></button>
+                                                    <strong>Info: </strong>You have 198 messages
+                                                </div>
+                                                <p><strong style="color: #0086b3">Loại 6</strong>: Loại thông báo có đường viền :2px , class : <code>.bordered-2px</code></p>
+                                                <div class="alert alert-info bordered-2px" role="alert">
+                                                    <button type="button" class="close"></button>
+                                                    <strong>Info: </strong>You have 198 messages
+                                                </div>
+                                                <p><strong style="color: #0086b3">Loại 7</strong>: Loại thông báo có đường viền :2px , class : <code>.bordered-3px</code></p>
+                                                <div class="alert alert-info bordered-3px" role="alert">
+                                                    <button type="button" class="close"></button>
+                                                    <strong>Info: </strong>You have 198 messages
+                                                </div>
+                                                <p><strong style="color: #0086b3">Loại 8</strong>: Loại thông báo có <strong>Link</strong></p>
+                                                <div class="alert alert-info" role="alert">
+                                                    <p class="pull-left">Your data limit has exceeded</p>
+                                                    <button type="button" class="close"></button>
+                                                    <p class="pull-right bold no-margin"><a href="#">See all now</a></p>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <p><strong style="color: #0086b3">Loại 9</strong>: Loại thông báo nhiều dòng</p>
+                                                <div class="alert alert-info" role="alert">
+                                                    <p class="pull-left">Meeting rescheduled</p>
+                                                    <button type="button" class="close"></button>
+                                                    <div class="clearfix"></div>
+                                                    <br />
+                                                    <p>The STG Meeting has been resheduled to the following date : 2014-12-17</p>
+                                                    <br />
+                                                    <p>Please complete the attendance form to confirm your attendance</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">Tooltips</div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div style="position: relative !important;">
+                                                    <div>
+                                                        <p class="small hint-text">Code Top:&lt;button type="button" pos-tooltip="top" title-tooltip="Chuyện Như Chưa Bắt Đầu" data-tooltip="tooltip" class="btn3 btn-default"&gt;Top&lt;/button&gt;</p>
+                                                        <p class="small hint-text">Code Bottom:&lt;button type="button" pos-tooltip="bottom" title-tooltip="Chuyện Như Chưa Bắt Đầu" data-tooltip="tooltip" class="btn3 btn-default"&gt;Top&lt;/button&gt;</p>
+                                                        <p class="small hint-text">Code Right:&lt;button type="button" pos-tooltip="right" title-tooltip="Chuyện Như Chưa Bắt Đầu" data-tooltip="tooltip" class="btn3 btn-default"&gt;Top&lt;/button&gt;</p>
+                                                        <p class="small hint-text">Code Left:&lt;button type="button" pos-tooltip="left" title-tooltip="Chuyện Như Chưa Bắt Đầu" data-tooltip="tooltip" class="btn3 btn-default"&gt;Top&lt;/button&gt;</p>
+                                                    </div>
+                                                    <div>
+                                                        <button type="button" pos-tooltip="top" title-tooltip="Chuyện Như Chưa Bắt Đầu" data-tooltip="tooltip" class="btn btn-primary m-r-5">Top</button>
+                                                        <button type="button" pos-tooltip="bottom" title-tooltip="Chuyện Như Chưa Bắt Đầu" data-tooltip="tooltip" class="btn btn-complete m-r-5">Bottom</button>
+                                                        <button type="button" pos-tooltip="right" title-tooltip="Chuyện Như Chưa Bắt Đầu" data-tooltip="tooltip" class="btn btn-warning m-r-5">Right</button>
+                                                        <button type="button" pos-tooltip="left" title-tooltip="Chuyện Như Chưa Bắt Đầu" data-tooltip="tooltip" class="btn btn-default m-r-5">Left</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ui:define>
+            </ui:composition> 
+        </h:form>
+    </h:body>
+</html>
+
+

@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      >
+    <h:head>
+        <link href="../images/icon/icon_setting_32.png" rel="shortcut icon" type="image/x-icon"/>
+        <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="css/normal.css" />
+        <link rel="stylesheet" type="text/css" href="css/page.css" />
+        <script type="text/javascript" src="#{request.contextPath}/js/jquery-2.1.1.min.js" />
+        <script type="text/javascript" src="js/login.js" />
+        <script type="text/javascript" src="js/page.js" />
+        <script type="text/javascript" src="js/normal.js" />
+    </h:head>
+    <h:body>
+        <h:form id="frm_login" prependId="false">
+            <div class="width_common panel-login">
+                <div class="width_common">
+                    <div class="main-login">
+                        <div class="row">
+                            <div class="col-1">
+                                <div class="panel panel-default no-margin">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">
+                                            Login
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="form-group form-group-default required">
+                                            <label>Username</label>
+                                            <input type="text" class="form-control" required="required" id="txt_username" placeholder="username" />
+                                        </div>
+                                        <div class="form-group form-group-default required">
+                                            <label>Password</label>
+                                            <input type="password" class="form-control" required="required" id="txt_password" placeholder="password" />
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="cb_remember" />
+                                            <label for="cb_remember">Remember user ?</label>
+                                        </div>
+                                        <div class="text-center">
+                                            <a class="btn btn-default">
+                                                <i class="i-gr i-g" />
+                                                Login
+                                            </a>
+                                            <a class="btn btn-default">
+                                                <i class="i-gr i-g2" />
+                                                Cancel
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

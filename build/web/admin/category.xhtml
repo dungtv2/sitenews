@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://java.sun.com/jsf/passthrough"
+
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <h:head>
+        <link href="../images/icon/icon_setting_32.png" rel="shortcut icon" type="image/x-icon"/>
+        <title>Admin haihai.net</title>
+    </h:head>
+    <h:body>
+        <h:form id="frm_default" prependId="false">
+            <ui:composition template="template/layout.xhtml">
+                <ui:define name="content">
+                    <div id="content" class="width_common bg-white">
+                        <ul class="list_base left">
+                            <li><a class="a_base" id="a_user" href="user.xhtml"><i class="i_icon i_user" />User</a></li>
+                            <li><a class="a_base" id="a_role" href="role.xhtml"><i class="i_icon i_role" />Role</a></li>
+                            <li><a class="a_base"  id="a_category" href="category.xhtml"><i class="i_icon i_category" />Category</a></li>
+                            <li><a class="a_base"  id="a_type" href="type-news.xhtml"><i class="i_icon i_type-news" />Type news</a> </li>
+                            <li><a  class="a_base" id="a_news" href="news.xhtml"><i class="i_icon i_news" />News</a> </li>
+                            <li><a  class="a_base" id="a_upload" href="upload.xhtml"><i class="glyphicon glyphicon-upload" />Upload</a> </li>
+                        </ul>
+                        <div class="main_base width_common">
+                            <ul class="list_base1 left">
+                                <li><a class="a_insert">
+                                        <i class="i-gr i-q2" />
+                                        Insert</a></li>
+                                <li><a class="a_show">
+                                        <i class="i-gr i-p3" />
+                                        Show</a></li>
+                            </ul>
+                            <c:if test="#{request.getAttribute('success')!=null}">
+                                <div class="pgn-wrapper" data-position="top-right">
+                                    <div class="pgn pgn-flip">
+                                        <div id="message" class="alert alert-success"><strong>Success: </strong>
+                                            <span>#{request.getAttribute("success")}</span>
+                                            <a class="close" data-dismiss="alert"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:if>
+                            <c:if test="#{request.getAttribute('failed')!=null}">
+                                <div class="pgn-wrapper" data-position="top-right">
+                                    <div class="pgn pgn-flip">
+                                        <div id="message" class="alert alert-danger"><strong>Danger: </strong>
+                                            <span>#{request.getAttribute("failed")}</span>
+                                            <a class="close" data-dismiss="alert"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:if>
+                            <div class="container-fluid p-t-10" data-hide="insert">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <div class="panel-title">
+                                                    <c:choose>
+                                                        <c:when test="#{cateAdbean.flag==true}">
+                                                            <label>Update</label>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <label>Insert</label>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    <h:inputHidden value="#{cateAdbean.flag}" />
+                                                    <h:inputHidden value="#{cateAdbean.cate.cate_id}" />
+                                                </div>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="form-group form-group-default required">
+                                                    <label>Name<span class="help">tên của cate</span></label>
+                                                    <input type="text" jsf:value="#{cateAdbean.cate.cate_name}" placeholder="name" class="form-control" required="required" />
+                                                </div>
+                                                <div class="form-group form-group-default required">
+                                                    <label>Alias<span class="help">url của cate</span></label>
+                                                    <input type="text" jsf:value="#{cateAdbean.cate.cate_alias}" placeholder="alias" class="form-control" required="required" />
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                        <div class="form-group form-group-default required">
+                                                            <label>Order<span class="help">vị trí</span></label>
+                                                            <input type="text" jsf:value="#{cateAdbean.cate.cate_order}" placeholder="order" type-validate="number" class="form-control" required="required" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="form-group form-group-default">
+                                                            <label>Parent ID<span class="help">loại</span></label>
+                                                            <input type="hidden" jsf:value="#{cateAdbean.cate.parent_id}" />
+                                                            <input type="text" class="form-control" data-select="select" />
+                                                            <ul class="select">
+                                                                <c:set var="count" value="0"/>
+                                                                <c:forEach items="#{cateAdbean.listCategory}" var="item">
+                                                                    <c:if test="#{item.parent_id==0}">
+                                                                        <c:set value="#{count+1}" var="count" />
+                                                                        <li value="#{item.cate_id}"><span>#{count}. </span><a>#{item.cate_name}</a></li>
+                                                                        <c:forEach items="#{cateAdbean.listCategory}" var="subitem">
+                                                                            <c:if test="#{item.cate_id==subitem.parent_id}">
+                                                                                <li value="#{subitem.cate_id}"><span>---------</span><a>#{subitem.cate_name}</a></li>
+                                                                            </c:if>
+                                                                        </c:forEach>
+                                                                    </c:if>
+                                                                </c:forEach>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-1">
+                                                        <a class="btn btn-default" jsf:action="#{cateAdbean.action()}">
+                                                            <i class="i-gr i-g" />
+                                                            <label>Action</label>
+                                                        </a>
+                                                        <button type="reset" class="btn btn-danger">
+                                                            <i class="i-w i-g2" />
+                                                            <label>Reset</label>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tbl-wrapper m-t-10" data-hide="show">
+                                    <div class="table">
+                                        <div class="tbl-row row-header">
+                                            <div class="cell">
+                                                <div>
+                                                    <div class="left"><i class="i_tbl"/></div>
+                                                    <div class="right"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tbl-row row-body">
+                                            <div class="cell">
+                                                <div class="table">
+                                                    <div class="tbl-row">
+                                                        <div class="cell cell-title"><label>ID</label></div>
+                                                        <div class="cell cell-title"><label>Create Date</label></div>
+                                                        <div class="cell cell-title"><label>Create UID</label></div>
+                                                        <div class="cell cell-title"><label>Write Date</label></div>
+                                                        <div class="cell cell-title"><label>Write UID</label></div>
+                                                        <div class="cell cell-title"><label>Parent ID</label></div>
+                                                        <div class="cell cell-title"><label>Alias</label></div>
+                                                        <div class="cell cell-title"><label>Name</label></div>
+                                                        <div class="cell cell-title"><label>Order</label></div>
+                                                        <div class="cell cell-title"><label>Action</label></div>
+                                                    </div>
+                                                    <c:forEach items="#{cateAdbean.listCategory}" var="item">
+                                                        <div class="tbl-row">
+                                                            <div class="cell cell-data"><label>#{item.cate_id}</label></div>
+                                                            <div class="cell cell-data"><label>#{item.create_date}</label></div>
+                                                            <div class="cell cell-data"><label>#{item.create_uid}</label></div>
+                                                            <div class="cell cell-data"><label>#{item.write_date}</label></div>
+                                                            <div class="cell cell-data"><label>#{item.write_uid}</label></div>
+                                                            <div class="cell cell-data"><label>#{item.parent_id}</label></div>
+                                                            <div class="cell cell-data"><label>#{item.cate_alias}</label></div>
+                                                            <div class="cell cell-data"><label>#{item.cate_name}</label></div>
+                                                            <div class="cell cell-data"><label>#{item.cate_order}</label></div>
+                                                            <div class="cell cell-data">
+                                                                <h:commandLink class="btn btn-default">
+                                                                    <i class="i-gr i-m4" />
+                                                                    <f:setPropertyActionListener value="true" target="#{cateAdbean.flag}" />
+                                                                    <f:setPropertyActionListener value="#{item}" target="#{cateAdbean.cate}" />
+                                                                </h:commandLink>
+                                                                <a class="btn btn-default" jsf:action="#{cateAdbean.delete(item)}">
+                                                                    <i class="i-gr i-o11" />
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </c:forEach>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tbl-row row-footer">
+                                            <div class="cell">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ui:define>
+            </ui:composition> 
+        </h:form>
+    </h:body>
+</html>

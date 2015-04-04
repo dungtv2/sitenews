@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Table</title>
+    </h:head>
+    <h:body>
+        <h:form id="frm_default" prependId="false">
+            <ui:composition template="template/layout.xhtml">
+                <ui:define name="content">
+                    <div id="content" class="width_common">
+                        <ul class="list_base left">
+                            <li><a class="a_base" id="a_user" href="button.xhtml"><i class="i_icon i_user" />Button</a></li>
+                            <li><a class="a_base" id="a_role" href="formelement.xhtml"><i class="i_icon i_role" />Form-element</a></li>
+                            <li><a class="a_base"  id="a_category" href="notifications.xhtml"><i class="i_icon i_category" />Notifications</a></li>
+                            <li><a class="a_base"  id="a_type" href="table.xhtml"><i class="i_icon i_type-news" />Tables</a> </li>
+                        </ul>
+                        <div class="container-fluid bg-white p-t-10 p-b-10">
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                Table simple
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>Dưới đây là 1 table đặc biệt.</h5>
+                                            <p></p>
+                                            <div class="tbl-wrapper no-padding">
+                                                <div class="table">
+                                                    <div class="tbl-row row-header">
+                                                        <div class="cell">
+                                                            <div>
+                                                                <div class="left"><i class="i_tbl"/></div>
+                                                                <div class="p-2">
+                                                                    <div style="width: 350px;float:left;height: 100%;">
+                                                                        <div class="input-group transparent">
+                                                                            <span class="input-group-addon">
+                                                                                <i class="i-gr i-m8" />
+                                                                            </span>
+                                                                            <input type="text" placeholder="Tìm kiếm với tất cả từ khóa" id="search_all" class="form-control txt_search" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tbl-row row-body">
+                                                        <div class="cell">
+                                                            <div class="table">
+                                                                <div class="tbl-row">
+                                                                    <div class="cell cell-title">
+                                                                        <a class="btn btn-default">
+                                                                            <i class="i-gr i-o11" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="cell cell-title">
+                                                                        <label>ID</label>
+                                                                    </div>
+                                                                    <div class="cell cell-title">
+                                                                        <label>Username</label>
+                                                                    </div>
+                                                                    <div class="cell cell-title">
+                                                                        <label>Password</label>
+                                                                    </div>
+                                                                    <div class="cell cell-title">
+                                                                        <label>Email</label>
+                                                                    </div>
+                                                                    <div class="cell cell-title">
+                                                                        <label>Birthday</label>
+                                                                    </div>
+                                                                    <div class="cell cell-title">
+                                                                        <label>Action</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tbl-row">
+                                                                    <div class="cell cell-title">
+                                                                        <label class="no-upercase">Search</label>
+                                                                    </div>
+                                                                    <div class="cell cell-title">
+                                                                        <input type="text" class="form-control" />
+                                                                    </div>
+                                                                    <div class="cell cell-title">
+                                                                        <input type="text" class="form-control" />
+                                                                    </div>
+                                                                    <div class="cell cell-title">
+                                                                        <input type="text" class="form-control" />
+                                                                    </div>
+                                                                    <div class="cell cell-title">
+                                                                        <input type="text" class="form-control" />
+                                                                    </div>
+                                                                    <div class="cell cell-title">
+                                                                        <input type="text" class="form-control" />
+                                                                    </div>
+                                                                    <div class="cell cell-title p-l-15 p-r-15">
+                                                                        <a class="btn btn-default" style="width: 100%">
+                                                                            <i class="i-gr i-g11" />
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <c:forEach items="#{userAdBean.list}" var="i">
+                                                                    <div class="tbl-row">
+                                                                        <div class="cell cell-data">
+                                                                            <div class="checkbox">
+                                                                                <input type="checkbox" value="#{i.id}" id="#{i.id}" />
+                                                                                <label for="#{i.id}"></label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="cell cell-data">
+                                                                            <label>#{i.id}</label>
+                                                                        </div>
+                                                                        <div class="cell cell-data">
+                                                                            <label>#{i.username}</label>
+                                                                        </div>
+                                                                        <div class="cell cell-data">
+                                                                            <label>#{i.password}</label>
+                                                                        </div>
+                                                                        <div class="cell cell-data">
+                                                                            <label>#{i.email}</label>
+                                                                        </div>
+                                                                        <div class="cell cell-data">
+                                                                            <label>#{i.birthday}</label>
+                                                                        </div>
+                                                                        <div class="cell cell-data">
+                                                                            <a class="btn btn-default">
+                                                                                <i class="i-gr i-o11" />
+                                                                            </a>
+                                                                            <a class="btn btn-default">
+                                                                                <i class="i-gr i-m4" />
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </c:forEach>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tbl-row row-footer">
+                                                        <div class="cell">
+                                                            <div class="topage">
+                                                                <div class="col-1">
+                                                                    <div class="input-group transparent">
+                                                                        <span class="input-group-addon">
+                                                                            Page 1/5 :
+                                                                        </span>
+                                                                        <input type="text" placeholder="page" class="form-control" />
+                                                                        <span class="input-group-addon" topage="topage">
+                                                                            <i class="i-gr i-p7" />
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="page pull-right">
+                                                                <a>First</a>
+                                                                <a>&larr;Previous</a>
+                                                                <a>1</a>
+                                                                <a>2</a>
+                                                                <a>3</a>
+                                                                <a>Next&rarr;</a>
+                                                                <a>Last</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ui:define>
+            </ui:composition> 
+        </h:form>
+    </h:body>
+</html>
+

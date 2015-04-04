@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+    </h:head>
+    <h:body>
+        <div id="header" class="width_common">
+            <div class="sub1_header width_common">
+                <div class="logo_admin left"></div>
+                <div class="div_list_header">
+                    <div class="block_more_infor">
+                        <a class="a_block_more_infor">block more infor</a>
+                    </div>
+                    <ul class="list_header left">
+                        <li><h:outputLink id="a_profile" class="a_header" value="./profile.xhtml"><i class="i_icon i_profile" />My profiles</h:outputLink></li>
+                        <li><h:outputLink id="a_message" class="a_header" value="./message.xhtml"><i class="i_icon i_message" />Message</h:outputLink></li>
+                        <li><h:outputLink id="a_setting" class="a_header" value="./setting.xhtml"><i class="i_icon i_setting" />Settings</h:outputLink></li>
+                        <li><h:commandLink class="a_header" action="#{formAdminController.logout()}"><i class="i_icon i_logout" />Logout</h:commandLink></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sub2_header width_common">
+                <ul class="list_mennu left">
+                    <li><h:outputLink  id="a_home" class="a_mennu" value="home.xhtml"><i class="i_icon i_home1" />Home</h:outputLink></li>
+                    <li><h:outputLink id="a_manager" class="a_mennu" value="content-base.xhtml"><i class="i_icon i_manadata" />Manager data</h:outputLink></li>
+                    <li><h:outputLink id="a_form" class="a_mennu" value="form.xhtml"><i class="i_icon i_form" />Form</h:outputLink></li>
+                    <li><h:outputLink id="a_element" class="a_mennu" value="Element.xhtml"><i class="i_icon i_form" />UI Element</h:outputLink></li>
+                </ul>
+            </div>
+            <div class="sub3_header width_common">
+                <h:panelGroup layout="block" id="pnl_entry" class="left">
+                    <ul class="list_entry left">
+                        <li><a><i class="i_icon i_home" />Home </a></li>
+                        <c:if test="#{formAdminController.url_entry !=null}">
+                            <li><a><strong>&rArr;</strong>#{formAdminController.url_entry}</a></li>
+                        </c:if>
+                    </ul>
+                </h:panelGroup>
+                <div class="div_search right">
+                    <input class="input" placeholder="Tìm Kiếm" />
+                    <h:commandButton class="btn-search" />
+                </div>
+            </div> 
+        </div>
+    </h:body>
+</html>
+
