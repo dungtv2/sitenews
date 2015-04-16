@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      >
+    <h:head>
+        <link href="../images/icon/icon_setting_32.png" rel="shortcut icon" type="image/x-icon"/>
+    </h:head>
+    <h:body>
+        <h:form id="frm_default" prependId="false">
+            <ui:composition template="template/layout.xhtml">
+                <ui:define name="content">
+                    <div id="content" class="width_common bg-white">
+                        <ui:include src="template/menu-base.xhtml" />
+                        <div class="main_base width_common">
+                            <ui:include src="template/noti-base.xhtml" />
+                            <div class="container-fluid p-t-10" data-hide="insert">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <div class="panel-title">
+                                                    <c:choose>
+                                                        <c:when test="#{roleBean.flag==true}">
+                                                            <label>Update</label>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <label>Insert</label>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    <h:inputHidden value="#{roleBean.flag}" />
+                                                    <h:inputHidden value="#{roleBean.role.role_id}" />
+                                                </div>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="form-group form-group-default required">
+                                                    <label>Name<span class="help">tên của role</span></label>
+                                                    <input type="text" jsf:value="#{roleBean.role.role_name}" class="form-control" required="required" />
+                                                </div>
+                                                <div class="form-group form-group-default required">
+                                                    <label>Description<span class="help">mô tả role</span></label>
+                                                    <input type="text" jsf:value="#{roleBean.role.role_des}" class="form-control" required="required" />
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-1">
+                                                        <a class="btn btn-default btn-save" jsf:action="#{roleBean.insert()}">
+                                                            <i class="i-gr i-g" />
+                                                            <label>Action</label>
+                                                        </a>
+                                                        <button type="reset" class="btn btn-danger">
+                                                            <i class="i-w i-g2" />
+                                                            <label>Reset</label>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tbl-wrapper m-t-10" data-hide="show">
+                                <div class="table">
+                                    <div class="tbl-row row-header">
+                                        <div class="cell">
+                                            <div>
+                                                <div class="left"><i class="i_tbl"/></div>
+                                                <div class="right"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tbl-row">
+                                        <div class="cell cell-body">
+                                            <div class="table">
+                                                <div class="tbl-row">
+                                                    <div class="cell cell-title"><label>ID</label></div>
+                                                    <div class="cell cell-title"><label>Create Date</label></div>
+                                                    <div class="cell cell-title"><label>Create UID</label></div>
+                                                    <div class="cell cell-title"><label>Write Date</label></div>
+                                                    <div class="cell cell-title"><label>Write UID</label></div>
+                                                    <div class="cell cell-title"><label>Description</label></div>
+                                                    <div class="cell cell-title"><label>Action</label></div>
+                                                </div>
+                                                <c:forEach items="#{roleBean.listRole}" var="item">
+                                                    <div class="tbl-row">
+                                                        <div class="cell cell-data"><label>#{item.role_id}</label> </div>
+                                                        <div class="cell cell-data"><label>#{item.create_date}</label> </div>
+                                                        <div class="cell cell-data"><label>#{item.create_uid}</label> </div>
+                                                        <div class="cell cell-data"><label>#{item.write_date}</label> </div>
+                                                        <div class="cell cell-data"><label>#{item.write_uid}</label> </div>
+                                                        <div class="cell cell-data"><label>#{item.role_name}</label></div>
+                                                        <div class="cell cell-data"><label>#{item.role_des}</label></div>
+                                                        <div class="cell cell-data">
+                                                            <h:commandLink class="btn btn-default">
+                                                                <i class="i-gr i-m4" />
+                                                                <f:setPropertyActionListener value="true" target="#{roleBean.flag}" />
+                                                                <f:setPropertyActionListener value="#{item}" target="#{roleBean.role}" />
+                                                            </h:commandLink>
+                                                            <a class="btn btn-default" jsf:action="#{roleBean.delete(item)}">
+                                                                <i class="i-gr i-o11" />
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </c:forEach>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tbl-row row-footer">
+                                        <div class="cell">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ui:define>
+            </ui:composition> 
+        </h:form>
+    </h:body>
+</html>

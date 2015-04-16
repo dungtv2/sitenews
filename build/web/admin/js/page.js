@@ -84,13 +84,16 @@ function effecttbl() {
     if ($('.tbl-wrapper .table').height() > 800) {
         $('.tbl-wrapper').css({overflowY: 'scroll'});
     }
-    if ($('.tbl-wrapper').width() > 1000) {
+    if ($('.tbl-wrapper .table').width() > 1000) {
         $('.tbl-wrapper').css({overflowX: 'scroll'});
     }
 }
 function datecontrol() {
-    $('input.date').focusin(function() {
+    $('input.date').each(function(index){
         $(this).datepicker({dateFormat: 'dd/mm/yy'});
+    });
+    $('input.date').focusin(function() {
+        $(this).datepicker("show");
     });
     $('span.date').click(function() {
         $(this).prev().datepicker("show");

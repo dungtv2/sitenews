@@ -75,14 +75,7 @@
             <ui:composition template="template/layout.xhtml">
                 <ui:define name="content">
                     <div id="content" class="width_common bg-white">
-                        <ul class="list_base left">
-                            <li><a class="a_base" id="a_user" href="user.xhtml"><i class="i_icon i_user" />User</a></li>
-                            <li><a class="a_base" id="a_role" href="role.xhtml"><i class="i_icon i_role" />Role</a></li>
-                            <li><a class="a_base"  id="a_category" href="category.xhtml"><i class="i_icon i_category" />Category</a></li>
-                            <li><a class="a_base"  id="a_type" href="type-news.xhtml"><i class="i_icon i_type-news" />Type news</a></li>
-                            <li><a  class="a_base" id="a_news" href="news.xhtml"><i class="i_icon i_news" />News</a></li>
-                            <li><a  class="a_base" id="a_upload" href="upload.xhtml"><i class="glyphicon glyphicon-upload" />Upload</a> </li>
-                        </ul>
+                        <ui:include src="template/menu-base.xhtml" />
                         <div class="container-fluid p-t-10">
                             <div class="row">
                                 <div class="col-2">

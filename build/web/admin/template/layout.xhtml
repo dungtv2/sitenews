@@ -4,6 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="#{request.contextPath}/images/icon/icon_setting_32.png" rel="shortcut icon" type="image/x-icon"/>
         <script type="text/javascript" src="../static/src/js/jquery-2.1.1.min.js" />
         <script type="text/javascript" src="../static/src/js/jquery-ui/jquery-ui.js" />
@@ -16,11 +17,14 @@
         <script type="text/javascript" src="#{request.contextPath}/admin/js/normal.js" />
         <script type="text/javascript" src="#{request.contextPath}/admin/js/page.js" />
         <script src="#{request.contextPath}/admin/js/ckeditor/ckeditor.js" />
+        <script type="text/javascript" src="#{request.contextPath}/admin/js/news.js" />
+        <script type="text/javascript" src="#{request.contextPath}/jwplayer/jwplayer.js"></script>
+        <script type="text/javascript">jwplayer.key = "h9Hk94XPyRVLvp3o2cVctXdh/OSReDO/NMi60A==";</script>
     </h:head>
     <h:body>
         <h:outputScript library="javax.faces" name="jsf.js" target="head"/>
-
         <h:form id="frm_default" prependId="false" enctype="multipart/form-data">
+            <ui:include src="../change-color.xhtml" />
             <div id="container-wrapper" class="width_common">
                 <div id="container" class="width_common">
                     <ui:insert name="header" >
@@ -32,7 +36,6 @@
                     <ui:insert name="footer" >
                         <ui:include src="footer.xhtml" />
                     </ui:insert>
-                    <ui:include src="../change-color.xhtml" />
                 </div>
             </div>
         </h:form>

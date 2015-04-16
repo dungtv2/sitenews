@@ -9,51 +9,15 @@
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       >
     <h:head>
-        <link href="../images/icon/icon_setting_32.png" rel="shortcut icon" type="image/x-icon"/>
-        <title>Admin haihai.net</title>
     </h:head>
     <h:body>
         <h:form id="frm_default" prependId="false" enctype="multipart/form-data">
             <ui:composition template="template/layout.xhtml">
                 <ui:define name="content">
                     <div id="content" class="width_common bg-white">
-                        <ul class="list_base left">
-                            <li><a class="a_base" id="a_user" href="user.xhtml"><i class="i_icon i_user" />User</a></li>
-                            <li><a class="a_base" id="a_role" href="role.xhtml"><i class="i_icon i_role" />Role</a></li>
-                            <li><a class="a_base"  id="a_category" href="category.xhtml"><i class="i_icon i_category" />Category</a></li>
-                            <li><a class="a_base"  id="a_type" href="type-news.xhtml"><i class="i_icon i_type-news" />Type news</a> </li>
-                            <li><a  class="a_base" id="a_news" href="news.xhtml"><i class="i_icon i_news" />News</a> </li>
-                            <li><a  class="a_base" id="a_upload" href="upload.xhtml"><i class="glyphicon glyphicon-upload" />Upload</a> </li>
-                        </ul>
+                        <ui:include src="template/menu-base.xhtml" />
                         <div class="main_base width_common">
-                            <ul class="list_base1 left">
-                                <li><a class="a_insert">
-                                        <i class="i-gr i-q2" />
-                                        Insert</a></li>
-                                <li><a class="a_show">
-                                        <i class="i-gr i-p3" />
-                                        Show</a></li>
-                            </ul>
-                            <c:if test="#{request.getAttribute('success')!=null}">
-                                <div class="pgn-wrapper" data-position="top-right">
-                                    <div class="pgn pgn-flip">
-                                        <div id="message" class="alert alert-success"><strong>Success: </strong>
-                                            <span>#{request.getAttribute("success")}</span>
-                                            <a class="close" data-dismiss="alert"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:if>
-                            <c:if test="#{request.getAttribute('failed')!=null}">
-                                <div class="pgn-wrapper" data-position="top-right">
-                                    <div class="pgn pgn-flip">
-                                        <div id="message" class="alert alert-danger"><strong>Danger: </strong>
-                                            <span>#{request.getAttribute("failed")}</span>
-                                            <a class="close" data-dismiss="alert"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:if>
+                            <ui:include src="template/noti-base.xhtml" />
                             <div class="container-fluid p-t-10" data-hide="insert">
                                 <div class="row">
                                     <div class="col-1">
@@ -134,8 +98,8 @@
                                                                         <div class="form-group form-group-default">
                                                                             <label>Gender</label>
                                                                             <script type="text/javascript">
-                                                                                $(function() {
-                                                                                    $('input[name="gender"]').click(function() {
+                                                                                $(function () {
+                                                                                    $('input[name="gender"]').click(function () {
                                                                                         $(this).parent().children('input[value-radio]').val($('input[name="gender"]:checked').val());
                                                                                     });
                                                                                 });
@@ -153,8 +117,8 @@
                                                                         <div class="form-group form-group-default">
                                                                             <label>Status</label>
                                                                             <script type="text/javascript">
-                                                                                $(function() {
-                                                                                    $('input[name="satus"]').click(function() {
+                                                                                $(function () {
+                                                                                    $('input[name="satus"]').click(function () {
                                                                                         $(this).parent().children('input[value-radio]').val($('input[name="satus"]:checked').val());
                                                                                     });
                                                                                 });
@@ -184,14 +148,16 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-1">
-                                                        <a class="btn btn-default" jsf:action="#{userAdBean.action()}">
-                                                            <i class="i-gr i-g"/>
-                                                            <span>Action</span>
-                                                        </a>
-                                                        <button type="reset" class="btn btn-danger">
-                                                            <i class="i-w i-g2"/>
-                                                            <span>Reset</span>
-                                                        </button>
+                                                        <div class="width_common relative">
+                                                            <a class="btn btn-default btn-save" jsf:action="#{userAdBean.action()}">
+                                                                <i class="i-gr i-g"/>
+                                                                <span>Action</span>
+                                                            </a>
+                                                            <button type="reset" class="btn btn-danger">
+                                                                <i class="i-w i-g2"/>
+                                                                <span>Reset</span>
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -252,18 +218,18 @@
                                                 </div>
                                                 <div class="tbl-row">
                                                     <script type="text/javascript">
-                                                        $(function() {
+                                                        $(function () {
                                                             var id;
                                                             var val;
-                                                            $('.txt_search').keyup(function() {
+                                                            $('.txt_search').keyup(function () {
                                                                 id = $(this).attr("id");
                                                                 val = $(this).val();
                                                             });
-                                                            $('#user_date,#user_role,#user_sex').change(function() {
+                                                            $('#user_date,#user_role,#user_sex').change(function () {
                                                                 id = $(this).attr("id");
                                                                 val = $(this).val();
                                                             });
-                                                            $('.search').click(function() {
+                                                            $('.search').click(function () {
                                                                 location.search = "id_search=" + id + "&amp;val_search=" + val;
                                                             });
                                                         });
@@ -317,15 +283,20 @@
                                                         <div class="cell cell-data"><label>#{item.birthday}</label></div>
                                                         <div class="cell cell-data"><label>#{item.sex}</label></div>
                                                         <div class="cell cell-data"><label>#{item.role_name}</label></div>
-                                                        <div class="cell cell-data">
+                                                        <div class="cell cell-data mw-120">
                                                             <h:commandLink class="btn btn-default">
                                                                 <i class="i-gr i-m4" />
                                                                 <f:setPropertyActionListener value="true" target="#{userAdBean.flag}" />
                                                                 <f:setPropertyActionListener value="#{item}" target="#{userAdBean.user}" />
                                                             </h:commandLink>
-                                                            <a class="btn btn-default" jsf:action="#{userAdBean.delete(item)}">
+                                                            <button class="btn btn-default m-l-5" onclick="if (!confirm('Are you sure wanna delete this item?')) {
+                                                                        return false;
+                                                                    }
+                                                                    ;
+                                                                    return true;
+                                                                    " jsf:action="#{userAdBean.delete(item)}">
                                                                 <i class="i-gr i-o11" />
-                                                            </a>
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </c:forEach>

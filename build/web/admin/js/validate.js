@@ -1,19 +1,41 @@
-$(function() {
+$(function () {
+    checkRequiredForButton();
     validata();
 });
+function checkRequiredForButton() {
+    a = function(val){return $("[data-hide='insert']").find(val)};
+    th = a("[required='required']");
+    rq = th.length;
+    flag = true;
+    if (rq > 0) {
+        th.each(function (index) {
+            vl = $(this).val();
+            if (vl == null || vl == "") {
+                flag = false;
+            }
+        });
+    }
+    if (!flag) {
+        if (typeof (a('[data-disabled]').html()) == 'undefined') {
+            a('.btn-save').parent().after('<div data-disabled="true" style="width:100%; height:100%;position:absolute; z-index:10; background-color:rgba(255, 255, 255, 0.5)"></div>');
+        }
+    } else {
+        a('[data-disabled]').remove();
+    }
+}
 function validata() {
     var str = '<div class="popover fade top in" role="tooltip">\n\
                         <div class="arrow"></div>\n\
                         <h3 class="popover-title"></h3>\n\
                         <div class="popover-content">Không được để trống!.</div>\n\
-                   </div>',flag = false;
+                   </div>', flag = false;
     $(str).insertAfter($('input[required],textarea[required]'));
-    $('input[required],textarea[required]').focusout(function() {
+    $('input[required],textarea[required]').focusout(function () {
         var th = $(this), type_validate = th.attr("type-validate"), list, val = th.val(), title, pr = th.parent();
         if (type_validate != null && type_validate != "") {
             list = type_validate.split(" ");
         }
-        showpp = function() {
+        showpp = function () {
             th.next(".popover").css({display: "block"});
             top_this = th.position().top;
             left_this = th.position().left;
@@ -24,7 +46,7 @@ function validata() {
             pr.addClass("has-error");
             th.next().css({top: (top_this - tool_height - 10) + 'px', left: (left_this - tool_width / 2 + this_width / 2) + 'px'});
         }
-        hidepp = function() {
+        hidepp = function () {
             th.next(".popover").css({display: "none"});
             pr.removeClass("has-error");
         }
@@ -36,9 +58,9 @@ function validata() {
         } else {
             showpp();
             var tt;
-            if (list != null && list != "") 
+            if (list != null && list != "")
             {
-                $.each(list, function(index) {
+                $.each(list, function (index) {
                     var item = list[index], name, vl;
                     if (item.indexOf(":") > 0) {
                         name = item.substr(0, item.indexOf(":"));
@@ -111,8 +133,6 @@ function validata() {
                 hidepp();
             }
         }
+        checkRequiredForButton();
     });
-     $('.btn-save').click(function(){
-          return flag;
-     });
 }

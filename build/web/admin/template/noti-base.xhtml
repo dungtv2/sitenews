@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+    </h:head>
+    <h:body>
+        <ul class="list_base1 left">
+            <li><a class="a_insert">
+                    <i class="i-gr i-q2" />
+                    Insert</a></li>
+            <li><a class="a_show">
+                    <i class="i-gr i-p3" />
+                    Show</a></li>
+        </ul>
+        <c:if test="#{request.getAttribute('success')!=null}">
+            <div class="pgn-wrapper" data-position="top-right">
+                <div class="pgn pgn-flip">
+                    <div id="message" class="alert alert-success"><strong>Success: </strong>
+                        <span>#{request.getAttribute("success")}</span>
+                        <a class="close" data-dismiss="alert"></a>
+                    </div>
+                </div>
+            </div>
+        </c:if>
+        <c:if test="#{request.getAttribute('failed')!=null}">
+            <div class="pgn-wrapper" data-position="top-right">
+                <div class="pgn pgn-flip">
+                    <div id="message" class="alert alert-danger"><strong>Danger: </strong>
+                        <span>#{request.getAttribute("failed")}</span>
+                        <a class="close" data-dismiss="alert"></a>
+                    </div>
+                </div>
+            </div>
+        </c:if>
+    </h:body>
+</html>
+

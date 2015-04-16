@@ -53,4 +53,9 @@ public class SelectRoleAll implements ISelect<role> {
             return list;
         }
     }
+    public static void main(String[] args){
+        SelectRoleAll s = new SelectRoleAll();
+        System.out.print(s.select(null).size());
+        
+    }
 }

@@ -12,7 +12,10 @@ $(function() {
 //effect hide columns
         $('#dunga').change(function() {
             var e = getCookie("hide"), c, flag = false, this_val = $(this).val();
-            if (e !== null) {
+            if(typeof(e)=='undefined'){
+                setCookie("hide", this_val, 1);
+            }
+            if (e !== null && typeof(e)!='undefined') {
                 var b = e.trim().split(",");
                 $.each(b, function(index) {
                     var d = b[index];

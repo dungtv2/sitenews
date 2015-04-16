@@ -9,12 +9,6 @@
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       >
     <h:head>
-        <link href="../images/icon/icon_setting_32.png" rel="shortcut icon" type="image/x-icon"/>
-        <title>Admin haihai.net</title>
-        <script type="text/javascript" src="#{request.contextPath}/js/jquery-2.1.1.min.js" />
-        <script type="text/javascript" src="#{request.contextPath}/admin/js/news.js" />
-        <script type="text/javascript" src="#{request.contextPath}/jwplayer/jwplayer.js"></script>
-        <script type="text/javascript">jwplayer.key = "h9Hk94XPyRVLvp3o2cVctXdh/OSReDO/NMi60A==";</script>
     </h:head>
     <h:body>
         <h:form id="frm_default" prependId="false" enctype="multipart/form-data">
@@ -170,8 +164,8 @@
                                                         </div>
                                                         <div class="tab-content">
                                                             <script type="text/javascript">
-                                                                $(function() {
-                                                                    $('.tab-head button[data-tab="output"]').click(function() {
+                                                                $(function () {
+                                                                    $('.tab-head button[data-tab="output"]').click(function () {
                                                                         var ttr = $('div[for="script"] textarea').val() + $('div[for="html"] textarea').val();
                                                                         $('div[for="output"] .result').html("").append(ttr);
                                                                     });
@@ -204,14 +198,16 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-1">
-                                                        <a class="btn btn-default btn-save" jsf:action="#{newsadBean.insert()}">
-                                                            <i class="i-gr i-g" />
-                                                            Action
-                                                        </a>
-                                                        <button type="reset" class="btn btn-danger">
-                                                            <i class="i-w i-g2" />
-                                                            Reset
-                                                        </button>
+                                                        <div class="width_common relative">
+                                                            <a class="btn btn-default btn-save" jsf:action="#{newsadBean.insert()}">
+                                                                <i class="i-gr i-g" />
+                                                                Action
+                                                            </a>
+                                                            <button type="reset" class="btn btn-danger">
+                                                                <i class="i-w i-g2" />
+                                                                Reset
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -300,18 +296,18 @@
                                                 </div>
                                                 <div class="tbl-row">
                                                     <script type="text/javascript">
-                                                        $(function() {
+                                                        $(function () {
                                                             var id;
                                                             var val;
-                                                            $('.txt_search').keyup(function() {
+                                                            $('.txt_search').keyup(function () {
                                                                 id = $(this).attr("id");
                                                                 val = $(this).val();
                                                             });
-                                                            $('#datepicker').change(function() {
+                                                            $('#datepicker').change(function () {
                                                                 id = 'datepicker';
                                                                 val = $(this).val();
                                                             });
-                                                            $('.search').click(function() {
+                                                            $('.search').click(function () {
                                                                 location.search = "id_search=" + id + "&amp;val_search=" + val;
                                                             });
 
