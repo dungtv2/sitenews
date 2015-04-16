@@ -44,4 +44,11 @@ public class SelectUserAll implements ISelect<user> {
             return list;
         }
     }
+    public static void main(String[] args){
+        SelectUserAll s = new SelectUserAll();
+        List<user> l = s.select(null);
+        for(int i=0; i<l.size(); i++){
+            System.out.print(((user)l.get(i)).getCreate_date());
+        }  
+    }
 }
