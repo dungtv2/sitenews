@@ -44,10 +44,4 @@ public class SelectUserAll implements ISelect<user> {
             return list;
         }
     }
-
-    public static void main(String[] args) {
-        SelectUserAll s = new SelectUserAll();
-        List<user> l = s.select(null);
-        System.out.print(l.size());
-    }
 }

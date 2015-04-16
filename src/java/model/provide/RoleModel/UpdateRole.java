@@ -32,13 +32,12 @@ public class UpdateRole implements IUpdate {
         connectManager.openConnection();
         con = connectManager.getConnection();
         try {
-            CallableStatement cs = con.prepareCall("{call sp_updateRole(?,?,?,?,?)}");
+            CallableStatement cs = con.prepareCall("{call sp_updateRole(?,?,?,?)}");
             java.sql.Date write_date = new Date(new java.util.Date().getTime());
             cs.setInt(1, role.getRole_id());
             cs.setDate(2, write_date);
-            cs.setInt(3, role.getWrite_uid());
-            cs.setString(4, role.getRole_name());
-            cs.setString(5, role.getRole_des());
+            cs.setString(3, role.getRole_name());
+            cs.setString(4, role.getRole_des());
 
             check = cs.executeUpdate();
         } catch (Exception e) {

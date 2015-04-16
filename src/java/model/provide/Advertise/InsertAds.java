@@ -39,7 +39,7 @@ public class InsertAds implements IInsert{
             CallableStatement cs = con.prepareCall("{call sp_inserRole(?,?,?,?)}");
             java.sql.Date register = new java.sql.Date(new java.util.Date().getTime());
             cs.setDate(1, register);
-            cs.setInt(2, role.getWrite_uid());
+            //cs.setInt(2, role.getWrite_uid());
             cs.setString(3, role.getRole_name());
             cs.setString(4, role.getRole_des());
 

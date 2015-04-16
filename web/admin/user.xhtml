@@ -232,6 +232,12 @@
                                                             $('.search').click(function () {
                                                                 location.search = "id_search=" + id + "&amp;val_search=" + val;
                                                             });
+                                                            $('.btn-delete').click(function() {
+                                                                if (confirm('Are you sure wanna delete this item ?')) {
+                                                                    return true;
+                                                                }
+                                                                return false;
+                                                            })
                                                         });
                                                     </script>
                                                     <div class="cell cell-title"><label>Search</label></div>
@@ -248,7 +254,7 @@
                                                         <h:selectOneMenu id="user_sex">
                                                             <f:selectItem itemLabel="---Gender---" noSelectionOption="true" />
                                                             <f:selectItem itemLabel="Nam" itemValue="nam" />
-                                                            <f:selectItem itemLabel="Nữ" itemValue="nữ" />
+                                                            <f:selectItem itemLabel="Nữ" itemValue="nu" />
                                                         </h:selectOneMenu>
                                                     </div>
                                                     <div class="cell cell-title">

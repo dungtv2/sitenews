@@ -35,12 +35,12 @@ public class InsertRole implements IInsert{
         connectManager.openConnection();
         con = connectManager.getConnection();
         try {
-            CallableStatement cs = con.prepareCall("{call sp_inserRole(?,?,?,?)}");
+            CallableStatement cs = con.prepareCall("{call sp_inserRole(?,?,?)}");
             java.sql.Date register = new java.sql.Date(new java.util.Date().getTime());
             cs.setDate(1, register);
-            cs.setInt(2, role.getWrite_uid());
-            cs.setString(3, role.getRole_name());
-            cs.setString(4, role.getRole_des());
+            //cs.setInt(2, role.getWrite_uid());
+            cs.setString(2, role.getRole_name());
+            cs.setString(3, role.getRole_des());
 
             check = cs.executeUpdate();
         } catch (Exception e) {
@@ -48,5 +48,13 @@ public class InsertRole implements IInsert{
         } finally {
             return check;
         }
+    }
+    public static void main(String[] args){
+        InsertRole i = new InsertRole();
+        role r = new role();
+        r.setRole_name("Administrator32");
+        r.setRole_des("Người Có quyền to nhất cả thế giỡi luông í");
+        
+        i.insert(r);
     }
 }

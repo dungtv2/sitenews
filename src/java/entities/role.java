@@ -15,20 +15,16 @@ public class role {
 
     private int role_id;
     private Date create_date;
-    private int create_uid;
     private Date write_date;
-    private int write_uid;
     private String role_name;
     private String role_des;
 
     public role() {
     }
 
-    public role(int role_id, Date create_date, int create_uid, Date write_date, int write_uid, String role_name, String role_des) {
+    public role(int role_id, Date create_date, Date write_date, String role_name, String role_des) {
         this.create_date = create_date;
-        this.create_uid = create_uid;
         this.write_date = write_date;
-        this.write_uid = write_uid;
         this.role_id = role_id;
         this.role_name = role_name;
         this.role_des = role_des;
@@ -50,14 +46,6 @@ public class role {
         this.create_date = create_date;
     }
 
-    public int getCreate_uid() {
-        return create_uid;
-    }
-
-    public void setCreate_uid(int create_uid) {
-        this.create_uid = create_uid;
-    }
-
     public Date getWrite_date() {
         return write_date;
     }
@@ -66,14 +54,6 @@ public class role {
         this.write_date = write_date;
     }
 
-    public int getWrite_uid() {
-        return write_uid;
-    }
-
-    public void setWrite_uid(int write_uid) {
-        this.write_uid = write_uid;
-    }
-    
     public String getRole_name() {
         return role_name;
     }

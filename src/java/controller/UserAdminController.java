@@ -249,7 +249,7 @@ public class UserAdminController {
 
     //upload file
     private String upload() {
-        if (part.getSubmittedFileName() != null) {
+        if (part.getSubmittedFileName() != null && part.getSubmittedFileName() != "" && part.getSize() > 0) {
             UploadFile up = new UploadFile();
             return up.uploadone(part, (HttpServletRequest) facesContext.getExternalContext().getRequest());
         } else {

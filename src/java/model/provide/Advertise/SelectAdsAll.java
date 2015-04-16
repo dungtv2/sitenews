@@ -41,9 +41,9 @@ public class SelectAdsAll implements ISelect<role> {
                 role n = new role();
                 n.setRole_id(rs.getInt(1));
                 n.setCreate_date(rs.getDate(2));
-                n.setCreate_uid(rs.getInt(3));
+                //n.setCreate_uid(rs.getInt(3));
                 n.setWrite_date(rs.getDate(4));
-                n.setWrite_uid(rs.getInt(5));
+                //n.setWrite_uid(rs.getInt(5));
                 n.setRole_name(rs.getString(6));
                 n.setRole_des(rs.getString(7));
                 list.add(n);
