@@ -1,9 +1,10 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="#{request.contextPath}/images/icon/icon_setting_32.png" rel="shortcut icon" type="image/x-icon"/>
         <script type="text/javascript" src="../static/src/js/jquery-2.1.1.min.js" />
         <script type="text/javascript" src="../static/src/js/jquery-ui/jquery-ui.js" />
@@ -19,23 +20,20 @@
     </h:head>
     <h:body>
         <h:outputScript library="javax.faces" name="jsf.js" target="head"/>
-
-        <h:form id="frm_default" prependId="false" enctype="multipart/form-data">
-            <div id="container-wrapper" class="width_common">
-                <div id="container" class="width_common">
-                    <ui:insert name="header" >
-                        <ui:include src="header.xhtml" />
-                    </ui:insert>
-                    <ui:insert name="content" >
-                        <ui:include src="content.xhtml" />
-                    </ui:insert>
-                    <ui:insert name="footer" >
-                        <ui:include src="footer.xhtml" />
-                    </ui:insert>
-                    <ui:include src="../change-color.xhtml" />
-                </div>
+        <div id="container-wrapper" class="width_common">
+            <div id="container" class="width_common">
+                <ui:insert name="header" >
+                    <ui:include src="header.xhtml" />
+                </ui:insert>
+                <ui:insert name="content" >
+                    <ui:include src="content.xhtml" />
+                </ui:insert>
+                <ui:insert name="footer" >
+                    <ui:include src="footer.xhtml" />
+                </ui:insert>
+                <ui:include src="../change-color.xhtml" />
             </div>
-        </h:form>
+        </div>
     </h:body>
 </html>
 

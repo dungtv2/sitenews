@@ -6,14 +6,18 @@
 package controller;
 
 import entities.role;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import model.provide.Delete;
 import model.provide.Insert;
 import model.provide.RoleModel.DeleteRole;
@@ -56,7 +60,12 @@ public class RoleController {
         select = new Select<role>(new SelectRoleAll());
         listRole = select.select(null);
         role = new role();
-
+        try {
+            ((HttpServletRequest) facesContext.getExternalContext().getRequest()).setCharacterEncoding("UTF-8");
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(RoleController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ((HttpServletResponse) facesContext.getExternalContext().getResponse()).setCharacterEncoding("UTF-8");
     }
 
     public RoleController() {
@@ -66,13 +75,11 @@ public class RoleController {
     public void insert() {
         String name = "";
         String alert = "";
-        role.setCreate_uid(1);
-        role.setWrite_uid(1);
         if (!flag) {
             insert = new Insert(new InsertRole());
             if (insert.insert(role) > 0) {
                 name = "success";
-                alert = "Insert success";
+                alert = role.getRole_des() + ":" + ((HttpServletRequest) facesContext.getExternalContext().getRequest()).getCharacterEncoding() + " : Insert success";
             } else {
                 name = "failed";
                 alert = "Insert failed";

@@ -3,8 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Truong%20Van%20Dung/Documents/NetBeansProjects/WebNews/web/admin/user.xhtml</file>
-            <file>file:/C:/Users/Truong%20Van%20Dung/Documents/NetBeansProjects/WebNews/web/admin/category.xhtml</file>
+            <file>file:/D:/ProjectWithGit/sitenews/sitenews/web/WEB-INF/web.xml</file>
+            <file>file:/D:/ProjectWithGit/sitenews/sitenews/web/admin/template/layout.xhtml</file>
+            <file>file:/D:/ProjectWithGit/sitenews/sitenews/src/java/entities/role.java</file>
+            <file>file:/D:/ProjectWithGit/sitenews/sitenews/web/admin/user.xhtml</file>
+            <file>file:/D:/ProjectWithGit/sitenews/sitenews/src/java/model/provide/RoleModel/InsertRole.java</file>
+            <file>file:/D:/ProjectWithGit/sitenews/sitenews/src/java/model/ConnectionManager.java</file>
+            <file>file:/D:/ProjectWithGit/sitenews/sitenews/src/java/model/provide/UserModel/SelectUserCode.java</file>
+            <file>file:/D:/ProjectWithGit/sitenews/sitenews/src/java/model/provide/UserModel/SelectUserByDate.java</file>
+            <file>file:/D:/ProjectWithGit/sitenews/sitenews/src/java/model/provide/UserModel/SelectUserAll.java</file>
+            <file>file:/D:/ProjectWithGit/sitenews/sitenews/web/admin/role.xhtml</file>
+            <file>file:/D:/ProjectWithGit/sitenews/sitenews/src/java/model/provide/RoleModel/UpdateRole.java</file>
+            <file>file:/D:/ProjectWithGit/sitenews/sitenews/src/java/controller/SetCharacterEncodingFilter.java</file>
+            <file>file:/D:/ProjectWithGit/sitenews/sitenews/src/java/model/provide/RoleModel/SelectRoleAll.java</file>
+            <file>file:/D:/ProjectWithGit/sitenews/sitenews/src/java/controller/RoleController.java</file>
+            <file>file:/D:/ProjectWithGit/sitenews/sitenews/web/admin/profile.xhtml</file>
         </group>
     </open-files>
 </project-private>
